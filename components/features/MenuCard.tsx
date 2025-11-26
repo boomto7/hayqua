@@ -19,8 +19,13 @@ export function MenuCard({ item }: MenuCardProps) {
     return price.toLocaleString('ko-KR') + '원';
   };
 
+  const getSpicyIcon = (level?: number) => {
+    if (!level || level === 0) return null;
+    return '🌶️'.repeat(level);
+  };
+
   return (
-    <Card hover className="h-full">
+    <Card hover className="flex flex-col">
       {/* 이미지 영역 */}
       {item.image ? (
         <div className="relative w-full h-64 bg-gray-100 overflow-hidden group">
@@ -72,15 +77,27 @@ export function MenuCard({ item }: MenuCardProps) {
         </div>
       )}
 
-      <CardBody className="flex flex-col h-full p-5">
+      <CardBody className="flex flex-col flex-1 p-5">
         <div className="flex-1">
           <div className="mb-2">
-            <h3 className="text-xl font-bold text-[#1a2332] mb-1">
-              {item.name}
-            </h3>
+            <div className="flex items-center gap-2 mb-1">
+              <h3 className="text-xl font-bold text-[#1a2332]">
+                {item.name}
+              </h3>
+              {item.spicyLevel && item.spicyLevel > 0 ? (
+                <span className="text-base" title={`매운맛 레벨 ${item.spicyLevel}`}>
+                  {getSpicyIcon(item.spicyLevel)}
+                </span>
+              ) : null}
+            </div>
             {item.nameEn && (
               <p className="text-xs text-gray-500">
                 {item.nameEn}
+              </p>
+            )}
+            {item.subtitle && (
+              <p className="text-sm text-gray-600 mt-1">
+                {item.subtitle}
               </p>
             )}
           </div>
@@ -95,9 +112,9 @@ export function MenuCard({ item }: MenuCardProps) {
           {item.options && item.options.length > 0 && (
             <div className="mb-3 space-y-1">
               {item.options.map((option, index) => (
-                <div key={index} className="flex justify-between text-sm">
-                  <span className="text-gray-600">{option.name}</span>
-                  <span className="text-gray-900 font-medium">
+                <div key={index} className="flex justify-between gap-2 text-sm">
+                  <span className="text-gray-600 flex-1">{option.name}</span>
+                  <span className="text-gray-900 font-medium whitespace-nowrap">
                     {formatPrice(option.price)}
                   </span>
                 </div>
@@ -113,10 +130,10 @@ export function MenuCard({ item }: MenuCardProps) {
           )}
         </div>
         
-        {/* 가격 표시 (옵션이 없는 경우만) */}
+        {/* 가격 표시 */}
         {item.price && (
-          <div className="mt-auto pt-3 border-t border-gray-100">
-            <p className="text-2xl font-bold text-[#f4a460]">
+          <div className="mt-4">
+            <p className="text-lg font-semibold text-gray-900">
               {formatPrice(item.price)}
             </p>
           </div>

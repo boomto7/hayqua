@@ -25,6 +25,7 @@ export interface MenuItem {
   id: string;
   name: string;
   nameEn?: string;
+  subtitle?: string;
   description?: string;
   price?: number;
   category: Category;

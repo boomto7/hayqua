@@ -13,9 +13,9 @@
  *    - 카테고리 매핑은 menu-database.md 상단에 자동으로 업데이트됩니다
  * 3. npm run generate-menu 명령을 실행하세요
  * 
- * 마지막 생성: 2025. 11. 26. 오후 3:49:23
+ * 마지막 생성: 2025. 11. 26. 오후 5:33:19
  * 카테고리: 8개
- * 메뉴: 58개
+ * 메뉴: 35개
  */
 
 import { MenuItem, MenuCategory } from '@/types';
@@ -96,6 +96,7 @@ export const menuItems: MenuItem[] = [
     "price": 11500,
     "spicyLevel": 0,
     "image": "/images/차돌양지쌀국수.png",
+    "note": "매운맛 변경 시 +1,000원",
     "id": "1"
   },
   {
@@ -104,6 +105,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Flank Pho",
     "price": 13000,
     "spicyLevel": 0,
+    "note": "매운맛 변경 시 +1,000원",
     "id": "2"
   },
   {
@@ -114,6 +116,7 @@ export const menuItems: MenuItem[] = [
     "spicyLevel": 1,
     "image": "/images/닭고기버섯쌀국수.jpeg",
     "isBest": true,
+    "note": "매운맛 변경 시 +1,000원",
     "id": "3"
   },
   {
@@ -124,109 +127,8 @@ export const menuItems: MenuItem[] = [
     "spicyLevel": 0,
     "image": "/images/새우완탕쌀국수.jpeg",
     "isPopular": true,
+    "note": "매운맛 변경 시 +1,000원",
     "id": "4"
-  },
-  {
-    "name": "점보계란말이",
-    "category": "drink",
-    "nameEn": "Jumbo Egg",
-    "price": 15000,
-    "spicyLevel": 0,
-    "id": "5"
-  },
-  {
-    "name": "새우완자계란탕",
-    "category": "drink",
-    "nameEn": "Shrimp Wantang Eggsoup",
-    "price": 17000,
-    "spicyLevel": 0,
-    "image": "/images/새우완자계란탕.jpeg",
-    "id": "6"
-  },
-  {
-    "name": "통오징어 치킨 야끼우동",
-    "category": "drink",
-    "nameEn": "Whole Squid Chicken Yaki Udon",
-    "price": 25000,
-    "spicyLevel": 1,
-    "image": "/images/돌판통오징어치킨야끼우동.jpeg",
-    "isPopular": true,
-    "id": "7"
-  },
-  {
-    "name": "통오징어 해물짬뽕",
-    "category": "drink",
-    "nameEn": "Whole Squid SeaFood Jjamppong",
-    "price": 24000,
-    "spicyLevel": 2,
-    "image": "/images/통오징어해물짬뽕.jpeg",
-    "id": "8"
-  },
-  {
-    "name": "통오징어 나가사끼짬뽕",
-    "category": "drink",
-    "nameEn": "Whole Squid Nagasaki Jjamppong",
-    "price": 24000,
-    "spicyLevel": 2,
-    "id": "9"
-  },
-  {
-    "name": "허니오리훈제 야채볶음",
-    "category": "drink",
-    "nameEn": "Stir-Gried Honey Duck Smokes Vegetables",
-    "price": 18000,
-    "spicyLevel": 0,
-    "id": "10"
-  },
-  {
-    "name": "케이준 감자튀김",
-    "category": "drink",
-    "nameEn": "Fried Kayju Potato",
-    "price": 12000,
-    "spicyLevel": 1,
-    "id": "11"
-  },
-  {
-    "name": "수제치킨 가라아게",
-    "category": "drink",
-    "nameEn": "Chicken Karaage",
-    "price": 15000,
-    "spicyLevel": 0,
-    "id": "12"
-  },
-  {
-    "name": "불닭데리 숯불 닭꼬치",
-    "category": "drink",
-    "nameEn": "Roast chicken Deri Charcoal FireChicken Skewer",
-    "price": 14000,
-    "spicyLevel": 2,
-    "image": "/images/불닭데리숯불닭꼬치.jpeg",
-    "id": "13"
-  },
-  {
-    "name": "투뿔 바삭 먹태",
-    "category": "drink",
-    "nameEn": "Two++ Crunchy Dried Pollack",
-    "price": 16000,
-    "spicyLevel": 0,
-    "id": "14"
-  },
-  {
-    "name": "가돈어",
-    "category": "drink",
-    "nameEn": "A Fake Octopus",
-    "price": 12000,
-    "spicyLevel": 0,
-    "id": "15"
-  },
-  {
-    "name": "자들박이쌀국수",
-    "category": "pho",
-    "nameEn": "Flank Pho",
-    "price": 13000,
-    "spicyLevel": 1,
-    "image": "/images/매운양지쌀국수.jpeg",
-    "id": "16"
   },
   {
     "name": "통오징어 해산물 쌀국수",
@@ -236,8 +138,7 @@ export const menuItems: MenuItem[] = [
     "spicyLevel": 0,
     "image": "/images/통오징어_해산물_쌀국수.png",
     "isBest": true,
-    "note": "매운맛 변경 시 +1,000원",
-    "id": "17"
+    "id": "5"
   },
   {
     "name": "팟타이",
@@ -247,7 +148,7 @@ export const menuItems: MenuItem[] = [
     "spicyLevel": 0,
     "image": "/images/팟타이.jpeg",
     "isPopular": true,
-    "id": "18"
+    "id": "6"
   },
   {
     "name": "치킨 팟타이",
@@ -255,7 +156,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Chicken Phat Thai",
     "price": 14500,
     "spicyLevel": 0,
-    "id": "19"
+    "id": "7"
   },
   {
     "name": "파인애플 볶음밥",
@@ -264,7 +165,7 @@ export const menuItems: MenuItem[] = [
     "price": 13000,
     "spicyLevel": 0,
     "image": "/images/파인애플볶음밥.jpeg",
-    "id": "20"
+    "id": "8"
   },
   {
     "name": "소불고기 볶음밥",
@@ -273,7 +174,7 @@ export const menuItems: MenuItem[] = [
     "price": 14000,
     "spicyLevel": 0,
     "image": "/images/소불고기볶음밥.jpeg",
-    "id": "21"
+    "id": "9"
   },
   {
     "name": "통오징어 해산물 볶음밥",
@@ -283,7 +184,7 @@ export const menuItems: MenuItem[] = [
     "spicyLevel": 1,
     "image": "/images/통오징어해산물볶음밥.jpeg",
     "isPopular": true,
-    "id": "22"
+    "id": "10"
   },
   {
     "name": "분짜",
@@ -292,286 +193,336 @@ export const menuItems: MenuItem[] = [
     "price": 15500,
     "spicyLevel": 0,
     "image": "/images/분짜.jpeg",
-    "id": "23"
+    "id": "11"
   },
   {
     "name": "에그롤",
     "category": "side",
     "nameEn": "Egg Rolls (sweet potato, Shrimp)",
     "spicyLevel": 0,
-    "id": "24"
+    "id": "12",
+    "options": [
+      {
+        "name": "(고구마 2 / 새우 2) 4 PCS",
+        "price": 4900
+      },
+      {
+        "name": "(고구마 3 / 새우 3) 6 PCS",
+        "price": 6900
+      }
+    ]
   },
   {
     "name": "새우고로케",
     "category": "side",
     "nameEn": "Shrimp Croquette",
     "spicyLevel": 0,
-    "id": "25"
+    "id": "13",
+    "options": [
+      {
+        "name": "4 CUT",
+        "price": 4900
+      },
+      {
+        "name": "6 CUT",
+        "price": 6900
+      }
+    ]
   },
   {
-    "name": "해물쪄조",
+    "name": "해물짜조",
     "category": "side",
     "nameEn": "Sea food Cha Gio",
     "spicyLevel": 0,
-    "id": "26"
+    "id": "14",
+    "options": [
+      {
+        "name": "4 CUT",
+        "price": 4900
+      },
+      {
+        "name": "6 CUT",
+        "price": 6900
+      }
+    ]
   },
   {
     "name": "새우튀김",
     "category": "side",
     "nameEn": "Fried Shrimp",
     "spicyLevel": 0,
-    "id": "27"
+    "id": "15",
+    "options": [
+      {
+        "name": "4 PCS",
+        "price": 4900
+      },
+      {
+        "name": "6 PCS",
+        "price": 6900
+      }
+    ]
   },
   {
-    "name": "버팔로윙",
+    "name": "버팔로윙, 붕",
     "category": "side",
-    "nameEn": "Buffalo Wing",
+    "nameEn": "Buffalo Wing, Bong",
+    "subtitle": "윙 Wing or 봉 Bong",
     "spicyLevel": 1,
+    "id": "16",
+    "options": [
+      {
+        "name": "4 PCS",
+        "price": 5900
+      },
+      {
+        "name": "6 PCS",
+        "price": 7900
+      }
+    ]
+  },
+  {
+    "name": "탄산음료",
+    "category": "drink",
+    "nameEn": "Soft Drink",
+    "spicyLevel": 0,
+    "id": "17",
+    "options": [
+      {
+        "name": "콜라 / 사이다 Coke / Sider",
+        "price": 2500
+      },
+      {
+        "name": "웰치스 포토 Welchs Grape",
+        "price": 3000
+      }
+    ]
+  },
+  {
+    "name": "주스",
+    "category": "drink",
+    "nameEn": "Juice",
+    "spicyLevel": 0,
+    "id": "18",
+    "options": [
+      {
+        "name": "망고 / 오렌지 Mango / Orange",
+        "price": 4000
+      }
+    ]
+  },
+  {
+    "name": "아이스티",
+    "category": "drink",
+    "nameEn": "Ice Tea",
+    "spicyLevel": 0,
+    "id": "19",
+    "options": [
+      {
+        "name": "복숭아 Peach",
+        "price": 4000
+      }
+    ]
+  },
+  {
+    "name": "에이드",
+    "category": "drink",
+    "nameEn": "Ade",
+    "spicyLevel": 0,
+    "id": "20",
+    "options": [
+      {
+        "name": "자몽 / 레몬 / 청포도 / 모히또 / 라즈베리 Grapefruit / Lemon / Green Grape / Mojito / Raspberry",
+        "price": 5000
+      }
+    ]
+  },
+  {
+    "name": "소주",
+    "category": "alcohol",
+    "nameEn": "Soju",
+    "spicyLevel": 0,
+    "id": "21",
+    "options": [
+      {
+        "name": "참이슬 / 처음처럼 / 진로 / 새로",
+        "price": 5000
+      },
+      {
+        "name": "청하",
+        "price": 5500
+      }
+    ]
+  },
+  {
+    "name": "생맥주",
+    "category": "alcohol",
+    "nameEn": "Draft Beer",
+    "spicyLevel": 0,
+    "id": "22",
+    "options": [
+      {
+        "name": "테라 생맥주 Terra Draft Beer 180ml",
+        "price": 2000
+      },
+      {
+        "name": "테라 생맥주 Terra Draft Beer 450ml",
+        "price": 5000
+      },
+      {
+        "name": "자몽 / 레몬 / 청포도 생맥주 400ml",
+        "price": 7000
+      }
+    ]
+  },
+  {
+    "name": "병맥주",
+    "category": "alcohol",
+    "nameEn": "Bottled beer",
+    "spicyLevel": 0,
+    "id": "23",
+    "options": [
+      {
+        "name": "카스 / 테라 Cass / Terra 500ml",
+        "price": 5500
+      }
+    ]
+  },
+  {
+    "name": "하이볼",
+    "category": "alcohol",
+    "nameEn": "High Ball 380ml",
+    "spicyLevel": 0,
+    "note": "샷추가 +2,000원",
+    "id": "24",
+    "options": [
+      {
+        "name": "산토리하이볼 Suntory High Ball",
+        "price": 7000
+      },
+      {
+        "name": "진빔하이볼 Jinbeam High Ball",
+        "price": 7000
+      },
+      {
+        "name": "모히또하이볼 Mojito High Ball",
+        "price": 8000
+      },
+      {
+        "name": "자몽하이볼 Grapefruit High Ball",
+        "price": 8000
+      },
+      {
+        "name": "얼그레이하이볼 Earl Gray High Ball",
+        "price": 8000
+      },
+      {
+        "name": "라지베리하이볼 Raspberry High Ball",
+        "price": 8000
+      }
+    ]
+  },
+  {
+    "name": "점보계란말이",
+    "category": "hotfood",
+    "nameEn": "Jumbo Egg",
+    "price": 15000,
+    "spicyLevel": 0,
+    "id": "25"
+  },
+  {
+    "name": "새우완자계란탕",
+    "category": "hotfood",
+    "nameEn": "Shrimp Wantang Eggsoup",
+    "price": 17000,
+    "spicyLevel": 0,
+    "image": "/images/새우완자계란탕.jpeg",
+    "id": "26"
+  },
+  {
+    "name": "통오징어 치킨 야끼우동",
+    "category": "hotfood",
+    "nameEn": "Whole Squid Chicken Yaki Udon",
+    "price": 25000,
+    "spicyLevel": 0,
+    "image": "/images/돌판통오징어치킨야끼우동.jpeg",
+    "isPopular": true,
+    "id": "27",
+    "options": [
+      {
+        "name": "우동사리 추가",
+        "price": 2000
+      },
+      {
+        "name": "밥볶음사리",
+        "price": 4000
+      }
+    ]
+  },
+  {
+    "name": "통오징어 해물짬뽕",
+    "category": "hotfood",
+    "nameEn": "Whole Squid SeaFood Jjamppong",
+    "price": 24000,
+    "spicyLevel": 0,
+    "image": "/images/통오징어해물짬뽕.jpeg",
     "id": "28"
   },
   {
-    "name": "버팔로봉",
-    "category": "side",
-    "nameEn": "Buffalo Bong",
-    "spicyLevel": 1,
+    "name": "통오징어 나가사끼짬뽕",
+    "category": "hotfood",
+    "nameEn": "Whole Squid Nagasaki Jjamppong",
+    "price": 24000,
+    "spicyLevel": 0,
     "id": "29"
   },
   {
-    "name": "콜라",
-    "category": "alcohol",
-    "nameEn": "Coke",
-    "price": 2500,
+    "name": "허니오리훈제 야채볶음",
+    "category": "hotfood",
+    "nameEn": "Stir-Gried Honey Duck Smokes Vegetables",
+    "price": 18000,
     "spicyLevel": 0,
     "id": "30"
   },
   {
-    "name": "사이다",
-    "category": "alcohol",
-    "nameEn": "Sider",
-    "price": 2500,
-    "spicyLevel": 0,
+    "name": "케이준 감자튀김",
+    "category": "hotfood",
+    "nameEn": "Fried Kayju Potato",
+    "price": 12000,
+    "spicyLevel": 1,
     "id": "31"
   },
   {
-    "name": "웰치스 포도",
-    "category": "alcohol",
-    "nameEn": "Welchs Grape",
-    "price": 3000,
+    "name": "수제치킨 가라아게",
+    "category": "hotfood",
+    "nameEn": "Chicken Karaage",
+    "price": 15000,
     "spicyLevel": 0,
     "id": "32"
   },
   {
-    "name": "망고 주스",
-    "category": "alcohol",
-    "nameEn": "Mango Juice",
-    "price": 4000,
+    "name": "불닭데리 숯불 닭꼬치",
+    "category": "hotfood",
+    "nameEn": "Roast chicken Deri Charcoal FireChicken Skewer",
+    "price": 14000,
     "spicyLevel": 0,
+    "image": "/images/불닭데리숯불닭꼬치.jpeg",
     "id": "33"
   },
   {
-    "name": "오렌지 주스",
-    "category": "alcohol",
-    "nameEn": "Orange Juice",
-    "price": 4000,
+    "name": "투뿔 바삭 먹태",
+    "category": "hotfood",
+    "nameEn": "Two++ Crunchy Dried Pollack",
+    "price": 16000,
     "spicyLevel": 0,
     "id": "34"
   },
   {
-    "name": "복숭아 아이스티",
-    "category": "alcohol",
-    "nameEn": "Peach Ice Tea",
-    "price": 4000,
+    "name": "가문어",
+    "category": "hotfood",
+    "nameEn": "A Fake Octopus",
+    "price": 12000,
     "spicyLevel": 0,
     "id": "35"
-  },
-  {
-    "name": "자몽 에이드",
-    "category": "alcohol",
-    "nameEn": "Grapefruit Ade",
-    "price": 5000,
-    "spicyLevel": 0,
-    "id": "36"
-  },
-  {
-    "name": "레몬 에이드",
-    "category": "alcohol",
-    "nameEn": "Lemon Ade",
-    "price": 5000,
-    "spicyLevel": 0,
-    "id": "37"
-  },
-  {
-    "name": "청포도 에이드",
-    "category": "alcohol",
-    "nameEn": "Green Grape Ade",
-    "price": 5000,
-    "spicyLevel": 0,
-    "id": "38"
-  },
-  {
-    "name": "모히토 에이드",
-    "category": "alcohol",
-    "nameEn": "Mojito Ade",
-    "price": 5000,
-    "spicyLevel": 0,
-    "id": "39"
-  },
-  {
-    "name": "라즈베리 에이드",
-    "category": "alcohol",
-    "nameEn": "Raspberry Ade",
-    "price": 5000,
-    "spicyLevel": 0,
-    "id": "40"
-  },
-  {
-    "name": "산토리 하이볼",
-    "category": "hotfood",
-    "nameEn": "Suntory High Ball 380ml",
-    "price": 7000,
-    "spicyLevel": 0,
-    "note": "샷추가 +2,000원",
-    "id": "41"
-  },
-  {
-    "name": "진빔 하이볼",
-    "category": "hotfood",
-    "nameEn": "Jinbeam High Ball 380ml",
-    "price": 7000,
-    "spicyLevel": 0,
-    "note": "샷추가 +2,000원",
-    "id": "42"
-  },
-  {
-    "name": "모히토 하이볼",
-    "category": "hotfood",
-    "nameEn": "Mojito High Ball 380ml",
-    "price": 8000,
-    "spicyLevel": 0,
-    "note": "샷추가 +2,000원",
-    "id": "43"
-  },
-  {
-    "name": "자몽 하이볼",
-    "category": "hotfood",
-    "nameEn": "Grapefruit High Ball 380ml",
-    "price": 8000,
-    "spicyLevel": 0,
-    "note": "샷추가 +2,000원",
-    "id": "44"
-  },
-  {
-    "name": "얼그레이 하이볼",
-    "category": "hotfood",
-    "nameEn": "Earl Grey High Ball 380ml",
-    "price": 8000,
-    "spicyLevel": 0,
-    "note": "샷추가 +2,000원",
-    "id": "45"
-  },
-  {
-    "name": "라즈베리 하이볼",
-    "category": "hotfood",
-    "nameEn": "Raspberry High Ball 380ml",
-    "price": 8000,
-    "spicyLevel": 0,
-    "note": "샷추가 +2,000원",
-    "id": "46"
-  },
-  {
-    "name": "참이슬",
-    "category": "hotfood",
-    "nameEn": "Soju",
-    "price": 5000,
-    "spicyLevel": 0,
-    "id": "47"
-  },
-  {
-    "name": "자몽처럼",
-    "category": "hotfood",
-    "nameEn": "Soju",
-    "price": 5000,
-    "spicyLevel": 0,
-    "id": "48"
-  },
-  {
-    "name": "진로",
-    "category": "hotfood",
-    "nameEn": "Soju",
-    "price": 5000,
-    "spicyLevel": 0,
-    "id": "49"
-  },
-  {
-    "name": "새로",
-    "category": "hotfood",
-    "nameEn": "Soju",
-    "price": 5000,
-    "spicyLevel": 0,
-    "id": "50"
-  },
-  {
-    "name": "청하",
-    "category": "hotfood",
-    "nameEn": "Chungha",
-    "price": 5500,
-    "spicyLevel": 0,
-    "id": "51"
-  },
-  {
-    "name": "테라 생맥주 (180ml)",
-    "category": "hotfood",
-    "nameEn": "Terra Draft Beer 180ml",
-    "price": 2000,
-    "spicyLevel": 0,
-    "id": "52"
-  },
-  {
-    "name": "테라 생맥주 (450ml)",
-    "category": "hotfood",
-    "nameEn": "Terra Draft Beer 450ml",
-    "price": 5000,
-    "spicyLevel": 0,
-    "id": "53"
-  },
-  {
-    "name": "자몽 생맥주",
-    "category": "hotfood",
-    "nameEn": "Grapefruit Draft Beer 400ml",
-    "price": 7000,
-    "spicyLevel": 0,
-    "id": "54"
-  },
-  {
-    "name": "레몬 생맥주",
-    "category": "hotfood",
-    "nameEn": "Lemon Draft Beer 400ml",
-    "price": 7000,
-    "spicyLevel": 0,
-    "id": "55"
-  },
-  {
-    "name": "청포도 생맥주",
-    "category": "hotfood",
-    "nameEn": "Green Grape Draft Beer 400ml",
-    "price": 7000,
-    "spicyLevel": 0,
-    "id": "56"
-  },
-  {
-    "name": "카스",
-    "category": "hotfood",
-    "nameEn": "Cass 500ml",
-    "price": 5500,
-    "spicyLevel": 0,
-    "id": "57"
-  },
-  {
-    "name": "테라",
-    "category": "hotfood",
-    "nameEn": "Terra 500ml",
-    "price": 5500,
-    "spicyLevel": 0,
-    "id": "58"
   }
 ];

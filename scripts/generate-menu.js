@@ -165,7 +165,8 @@ function parseMenuFromMarkdown(markdown, categoryMapping) {
   let autoId = 1; // 자동 ID 카운터
   
   for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim();
+    const rawLine = lines[i]; // 원본 줄 (들여쓰기 포함)
+    const line = rawLine.trim(); // 트림된 줄
     
     // 매핑 섹션 이후부터 파싱 시작
     if (line === '---' && !startParsing) {
@@ -210,6 +211,8 @@ function parseMenuFromMarkdown(markdown, categoryMapping) {
       currentItem.category = categoryMapping[categoryValue] || categoryValue;
     } else if (line.startsWith('- **영문명**:')) {
       currentItem.nameEn = line.replace('- **영문명**:', '').trim() || undefined;
+    } else if (line.startsWith('- **서브타이틀**:')) {
+      currentItem.subtitle = line.replace('- **서브타이틀**:', '').trim() || undefined;
     } else if (line.startsWith('- **가격**:')) {
       const priceText = line.replace('- **가격**:', '').trim();
       // 숫자만 파싱 (쉼표와 "원" 제거)
@@ -236,9 +239,9 @@ function parseMenuFromMarkdown(markdown, categoryMapping) {
       currentItem.isBest = value === '1' || value.includes('⭐');
     } else if (line.startsWith('- **비고**:')) {
       currentItem.note = line.replace('- **비고**:', '').trim() || undefined;
-    } else if (line.startsWith('  - ') && !line.startsWith('- **옵션**:')) {
+    } else if (rawLine.startsWith('  - ') && !line.startsWith('- **옵션**:')) {
       // 옵션 항목 파싱: "작은 사이즈: 8000" (쉼표와 "원" 제거)
-      const optionText = line.replace('  - ', '').trim();
+      const optionText = rawLine.replace(/^\s*- /, '').trim();
       const match = optionText.match(/(.+?):\s*([\d,]+)/);
       if (match) {
         currentOptions.push({
@@ -303,6 +306,7 @@ export interface MenuItem {
   id: string;
   name: string;
   nameEn?: string;
+  subtitle?: string;
   description?: string;
   price?: number;
   category: Category;

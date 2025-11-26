@@ -8,3 +8,4 @@ declare module '*.txt' {
   export default content;
 }
 
+
