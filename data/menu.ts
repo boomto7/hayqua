@@ -13,7 +13,7 @@
  *    - 카테고리 매핑은 menu-database.md 상단에 자동으로 업데이트됩니다
  * 3. npm run generate-menu 명령을 실행하세요
  * 
- * 마지막 생성: 2025. 11. 26. 오후 5:33:19
+ * 마지막 생성: 2025. 11. 26. 오후 5:50:51
  * 카테고리: 8개
  * 메뉴: 35개
  */
@@ -124,7 +124,7 @@ export const menuItems: MenuItem[] = [
     "category": "pho",
     "nameEn": "Shrimp Wantang Mushroom Pho",
     "price": 14000,
-    "spicyLevel": 0,
+    "spicyLevel": 1,
     "image": "/images/새우완탕쌀국수.jpeg",
     "isPopular": true,
     "note": "매운맛 변경 시 +1,000원",
@@ -135,7 +135,7 @@ export const menuItems: MenuItem[] = [
     "category": "pho",
     "nameEn": "Whole Squid Seafood Pho",
     "price": 16000,
-    "spicyLevel": 0,
+    "spicyLevel": 1,
     "image": "/images/통오징어_해산물_쌀국수.png",
     "isBest": true,
     "id": "5"
@@ -181,7 +181,7 @@ export const menuItems: MenuItem[] = [
     "category": "friedRice",
     "nameEn": "Whole Squid Seafood Rice",
     "price": 16000,
-    "spicyLevel": 1,
+    "spicyLevel": 0,
     "image": "/images/통오징어해산물볶음밥.jpeg",
     "isPopular": true,
     "id": "10"
@@ -268,7 +268,7 @@ export const menuItems: MenuItem[] = [
     "category": "side",
     "nameEn": "Buffalo Wing, Bong",
     "subtitle": "윙 Wing or 봉 Bong",
-    "spicyLevel": 1,
+    "spicyLevel": 0,
     "id": "16",
     "options": [
       {
@@ -489,7 +489,7 @@ export const menuItems: MenuItem[] = [
     "category": "hotfood",
     "nameEn": "Fried Kayju Potato",
     "price": 12000,
-    "spicyLevel": 1,
+    "spicyLevel": 0,
     "id": "31"
   },
   {
