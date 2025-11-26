@@ -1,6 +1,6 @@
 /**
  * 메뉴 생성 스크립트
- * category-database.md와 menu-database.md 파일을 읽어서 menu.ts 파일을 생성합니다.
+ * category-database.md와 menu-database.md 파일을 읽어서 menu.ts와 types를 생성합니다.
  * 
  * 사용법: npm run generate-menu
  */
@@ -87,6 +87,69 @@ function parseCategoryMapping(markdown) {
   }
   
   return mapping;
+}
+
+/**
+ * menu-database.md 파일 업데이트
+ */
+function updateMenuDatabaseMapping(categories) {
+  const menuPath = path.join(process.cwd(), 'data', 'menu-database.md');
+  let menuContent = fs.readFileSync(menuPath, 'utf-8');
+  
+  // 매핑 생성
+  const mappingLines = categories.map((cat, index) => 
+    `${index + 1}: ${cat.id} (${cat.name})`
+  ).join('\n');
+  
+  // 새로운 매핑 섹션
+  const newMappingSection = `## 카테고리 ID 매핑
+
+\`\`\`
+${mappingLines}
+\`\`\`
+
+> **필드 입력 방법**
+> - **카테고리**: 위 숫자를 입력하세요 (1-${categories.length})
+> - **가격**: 숫자만 입력하세요 (예: 15000)
+> - **추천**, **BEST**: 1을 입력하세요
+> - **매운맛**: 0(안매움), 1(매움), 2(더매움), 3(아주매움)
+
+---`;
+  
+  // 매핑 섹션의 시작과 끝을 찾기
+  const lines = menuContent.split('\n');
+  let startIndex = -1;
+  let endIndex = -1;
+  
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i].trim() === '## 카테고리 ID 매핑') {
+      startIndex = i;
+    }
+    if (startIndex !== -1 && lines[i].trim() === '---' && i > startIndex) {
+      endIndex = i;
+      break;
+    }
+  }
+  
+  if (startIndex !== -1 && endIndex !== -1) {
+    // 매핑 섹션 교체
+    const beforeMapping = lines.slice(0, startIndex).join('\n');
+    const afterMapping = lines.slice(endIndex + 1).join('\n');
+    menuContent = beforeMapping + '\n' + newMappingSection + '\n' + afterMapping;
+    
+    // 파일에 쓰기
+    fs.writeFileSync(menuPath, menuContent, 'utf-8');
+    console.log('✅ menu-database.md의 카테고리 매핑이 업데이트되었습니다.');
+    console.log(`   업데이트된 매핑 (${categories.length}개):`);
+    categories.forEach((cat, index) => {
+      console.log(`     ${index + 1}: ${cat.id} (${cat.name})`);
+    });
+  } else {
+    console.log('⚠️  매핑 섹션을 찾을 수 없어서 업데이트하지 못했습니다.');
+    console.log(`   startIndex: ${startIndex}, endIndex: ${endIndex}`);
+  }
+  
+  return menuContent;
 }
 
 /**
@@ -202,6 +265,82 @@ function parseMenuFromMarkdown(markdown, categoryMapping) {
 }
 
 /**
+ * Category 타입 문자열 생성
+ */
+function generateCategoryType(categories) {
+  const categoryLines = categories.map((cat, index) => {
+    const isLast = index === categories.length - 1;
+    const comment = `// ${cat.name}`;
+    const line = `  | '${cat.id}'`;
+    return isLast ? `${line};${' '.repeat(15 - cat.id.length)}${comment}` : `${line}${' '.repeat(15 - cat.id.length)}${comment}`;
+  });
+  
+  return `export type Category = \n${categoryLines.join('\n')}`;
+}
+
+/**
+ * types/menu.ts 파일 업데이트
+ */
+function updateMenuTypes(categories) {
+  const categoryType = generateCategoryType(categories);
+  
+  const typesContent = `/**
+ * 메뉴 관련 타입 정의
+ * 데이터 구조를 명확히 정의하여 타입 안정성을 보장합니다.
+ * 
+ * ⚠️ 이 파일의 Category 타입은 자동 생성됩니다.
+ * category-database.md를 수정하고 npm run generate-menu를 실행하세요.
+ */
+
+${categoryType}
+
+export interface MenuOption {
+  name: string;
+  price: number;
+}
+
+export interface MenuItem {
+  id: string;
+  name: string;
+  nameEn?: string;
+  description?: string;
+  price?: number;
+  category: Category;
+  image?: string;
+  isPopular?: boolean;
+  isNew?: boolean;
+  isBest?: boolean;
+  spicyLevel?: number;  // 매운맛 단계: 0(안매움), 1(매움), 2(더매움), 3(아주매움)
+  options?: MenuOption[];
+  note?: string;
+}
+
+export interface MenuCategory {
+  id: Category;
+  name: string;
+  nameEn: string;
+  description: string;
+  order?: number;  // 카테고리 표시 순서
+}
+
+export interface Restaurant {
+  name: string;
+  description: string;
+  logo?: string;
+  contact: {
+    phone: string;
+    address: string;
+    hours: string;
+  };
+}
+`;
+  
+  const typesPath = path.join(process.cwd(), 'types', 'menu.ts');
+  fs.writeFileSync(typesPath, typesContent, 'utf-8');
+  console.log('✅ types/menu.ts 파일이 업데이트되었습니다.');
+}
+
+/**
  * TypeScript 파일 생성
  */
 function generateMenuFile() {
@@ -215,19 +354,20 @@ function generateMenuFile() {
   const categories = parseCategoriesFromMarkdown(categoryContent);
   console.log(`✅ ${categories.length}개의 카테고리를 파싱했습니다.`);
   
-  console.log('📖 메뉴 파일을 읽는 중...');
+  // Category 타입 업데이트
+  console.log('🔄 Category 타입 생성 중...');
+  updateMenuTypes(categories);
   
-  // 메뉴 .md 파일 읽기
-  const menuPath = path.join(process.cwd(), 'data', 'menu-database.md');
-  const menuContent = fs.readFileSync(menuPath, 'utf-8');
+  // menu-database.md 매핑 업데이트
+  console.log('🔄 menu-database.md 매핑 업데이트 중...');
+  const updatedMenuContent = updateMenuDatabaseMapping(categories);
   
   console.log('🔄 카테고리 매핑 파싱 중...');
-  const categoryMapping = parseCategoryMapping(menuContent);
+  const categoryMapping = parseCategoryMapping(updatedMenuContent);
   console.log(`✅ ${Object.keys(categoryMapping).length}개의 매핑을 파싱했습니다.`);
-  console.log('   매핑:', categoryMapping);
   
   console.log('🔄 메뉴 데이터 파싱 중...');
-  const menuItems = parseMenuFromMarkdown(menuContent, categoryMapping);
+  const menuItems = parseMenuFromMarkdown(updatedMenuContent, categoryMapping);
   console.log(`✅ ${menuItems.length}개의 메뉴 아이템을 파싱했습니다.`);
   console.log(`   자동 ID 생성: 1 ~ ${menuItems.length}`);
   
@@ -269,12 +409,12 @@ function generateMenuFile() {
  * 데이터를 수정하려면:
  * 1. data/category-database.md 파일로 카테고리를 관리하세요
  * 2. data/menu-database.md 파일로 메뉴를 관리하세요
- *    - 각 메뉴에 **카테고리** 필드를 숫자로 입력하세요 (1-8)
+ *    - 각 메뉴에 **카테고리** 필드를 숫자로 입력하세요 (1-${categories.length})
  *    - **가격**은 숫자만 입력하세요 (예: 15000)
  *    - **추천**, **BEST**는 1을 입력하세요
  *    - **매운맛**은 0(안매움), 1(매움), 2(더매움), 3(아주매움)
  *    - ID는 자동으로 순차적으로 생성됩니다 (1부터 시작)
- *    - 카테고리 매핑은 menu-database.md 상단에 있습니다
+ *    - 카테고리 매핑은 menu-database.md 상단에 자동으로 업데이트됩니다
  * 3. npm run generate-menu 명령을 실행하세요
  * 
  * 마지막 생성: ${new Date().toLocaleString('ko-KR')}
@@ -293,7 +433,7 @@ export const menuCategories: MenuCategory[] = ${JSON.stringify(categoriesWithOrd
 /**
  * 메뉴 아이템 목록
  * menu-database.md 파일에서 생성됩니다.
- * 각 메뉴는 카테고리 숫자(1-8)로 참조하며, ID는 자동 생성됩니다.
+ * 각 메뉴는 카테고리 숫자(1-${categories.length})로 참조하며, ID는 자동 생성됩니다.
  */
 export const menuItems: MenuItem[] = ${JSON.stringify(menuItems, null, 2)};
 `;
@@ -311,8 +451,8 @@ export const menuItems: MenuItem[] = ${JSON.stringify(menuItems, null, 2)};
   console.log('');
   console.log('💡 데이터를 수정하려면:');
   console.log('   1. data/category-database.md - 카테고리 및 순서 관리');
-  console.log('   2. data/menu-database.md - 메뉴 관리');
-  console.log('      - 카테고리: 1-8 숫자로');
+  console.log('   2. data/menu-database.md - 메뉴 관리 (매핑은 자동 업데이트!)');
+  console.log(`      - 카테고리: 1-${categories.length} 숫자로`);
   console.log('      - 가격: 15000 (숫자만)');
   console.log('      - 추천/BEST: 1');
   console.log('      - 매운맛: 0~3 (0=안매움, 1=매움, 2=더매움, 3=아주매움)');
