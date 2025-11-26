@@ -58,7 +58,7 @@ export default function Home() {
 
       <main>
         {/* 카테고리 필터 섹션 (Sticky) */}
-        <section id="category-filter-section" className="py-4 bg-white sticky top-0 z-10 shadow-sm">
+        <section id="category-filter-section" className="py-4 bg-white sticky top-0 z-50 shadow-sm">
           <Container>
             <CategoryFilter
               categories={categories}
