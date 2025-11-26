@@ -11,6 +11,6 @@ export const restaurantInfo: Restaurant = {
   contact: {
     phone: '02-1234-5678',
     address: '서울시 강남구 테헤란로 123',
-    hours: '14:00 ~ 24:00 (라스트오더 23:00)',
+    hours: '11:00 ~ 22:00',
   },
 };
