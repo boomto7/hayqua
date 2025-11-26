@@ -18,50 +18,68 @@ export function MenuCard({ item }: MenuCardProps) {
     return price.toLocaleString('ko-KR') + '원';
   };
 
-  const getSpicyLevelText = (level?: number) => {
-    if (!level) return null;
-    const peppers = '🌶️'.repeat(level);
-    return peppers;
-  };
-
   return (
     <Card hover className="h-full">
       <CardBody className="flex flex-col h-full">
         <div className="flex-1">
           <div className="flex items-start justify-between mb-2">
-            <h3 className="text-lg font-semibold text-gray-900">
-              {item.name}
-            </h3>
-            <div className="flex gap-1 ml-2">
-              {item.isPopular && (
-                <Badge variant="danger" size="sm">인기</Badge>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                {item.name}
+              </h3>
+              {item.nameEn && (
+                <p className="text-xs text-gray-500">
+                  {item.nameEn}
+                </p>
               )}
-              {item.isNew && (
-                <Badge variant="success" size="sm">NEW</Badge>
+            </div>
+            <div className="flex flex-col gap-1 ml-2">
+              {item.isPopular && (
+                <Badge variant="danger" size="sm">추천</Badge>
+              )}
+              {item.isBest && (
+                <Badge variant="warning" size="sm">BEST</Badge>
               )}
             </div>
           </div>
           
-          <p className="text-sm text-gray-600 mb-3">
-            {item.description}
-          </p>
+          {item.description && (
+            <p className="text-sm text-gray-600 mb-3">
+              {item.description}
+            </p>
+          )}
           
-          {item.spicyLevel && (
-            <div className="mb-2">
-              <span className="text-sm">
-                {getSpicyLevelText(item.spicyLevel)}
-              </span>
+          {/* 옵션 표시 */}
+          {item.options && item.options.length > 0 && (
+            <div className="mb-3 space-y-1">
+              {item.options.map((option, index) => (
+                <div key={index} className="flex justify-between text-sm">
+                  <span className="text-gray-600">{option.name}</span>
+                  <span className="text-gray-900 font-medium">
+                    {formatPrice(option.price)}
+                  </span>
+                </div>
+              ))}
             </div>
+          )}
+
+          {/* 노트 표시 */}
+          {item.note && (
+            <p className="text-xs text-blue-600 mb-2">
+              ※ {item.note}
+            </p>
           )}
         </div>
         
-        <div className="mt-auto pt-3 border-t border-gray-100">
-          <p className="text-xl font-bold text-blue-600">
-            {formatPrice(item.price)}
-          </p>
-        </div>
+        {/* 가격 표시 (옵션이 없는 경우만) */}
+        {item.price && (
+          <div className="mt-auto pt-3 border-t border-gray-100">
+            <p className="text-xl font-bold text-blue-600">
+              {formatPrice(item.price)}
+            </p>
+          </div>
+        )}
       </CardBody>
     </Card>
   );
 }
-

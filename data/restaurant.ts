@@ -6,12 +6,11 @@
 import { Restaurant } from '@/types';
 
 export const restaurantInfo: Restaurant = {
-  name: '맛있는 식당',
-  description: '신선한 재료로 만드는 정성 가득한 요리',
+  name: 'HAYQUA',
+  description: '베트남 & 퓨전 요리 전문점',
   contact: {
     phone: '02-1234-5678',
     address: '서울시 강남구 테헤란로 123',
-    hours: '월-금 11:00 - 21:00 / 주말 12:00 - 22:00',
+    hours: '14:00 ~ 24:00 (라스트오더 23:00)',
   },
 };
-

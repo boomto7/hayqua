@@ -29,28 +29,27 @@ export function useMenu() {
     const query = searchQuery.toLowerCase();
     return filteredByCategory.filter(item => 
       item.name.toLowerCase().includes(query) ||
-      item.description.toLowerCase().includes(query)
+      (item.nameEn && item.nameEn.toLowerCase().includes(query)) ||
+      (item.description && item.description.toLowerCase().includes(query))
     );
   }, [filteredByCategory, searchQuery]);
 
-  // 인기 메뉴
+  // 인기/추천 메뉴
   const popularItems = useMemo(() => 
-    menuItems.filter(item => item.isPopular),
+    menuItems.filter(item => item.isPopular || item.isBest),
     []
   );
 
-  // 신메뉴
-  const newItems = useMemo(() => 
-    menuItems.filter(item => item.isNew),
-    []
-  );
+  // 특정 카테고리의 메뉴만 가져오기
+  const getItemsByCategory = (category: Category) => {
+    return menuItems.filter(item => item.category === category);
+  };
 
   return {
     // 데이터
     allItems: menuItems,
     filteredItems,
     popularItems,
-    newItems,
     categories: menuCategories,
     
     // 상태
@@ -60,6 +59,6 @@ export function useMenu() {
     // 액션
     setSelectedCategory,
     setSearchQuery,
+    getItemsByCategory,
   };
 }
-
