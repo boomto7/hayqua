@@ -9,7 +9,6 @@
 import { Container, Heading3, Heading4 } from '@/components/ui';
 import { 
   Header, 
-  SearchBar, 
   CategoryFilter, 
   MenuGrid 
 } from '@/components/features';
@@ -22,13 +21,25 @@ export default function Home() {
     popularItems,
     categories,
     selectedCategory,
-    searchQuery,
     setSelectedCategory,
-    setSearchQuery,
     getItemsByCategory,
   } = useMenu();
 
   const { restaurant } = useRestaurant();
+
+  // 카테고리 변경 핸들러 (스크롤 포함)
+  const handleCategoryChange = (category: typeof selectedCategory) => {
+    setSelectedCategory(category);
+    // sticky header가 시작되는 위치로 스크롤
+    const stickyHeader = document.getElementById('category-filter-section');
+    if (stickyHeader) {
+      const headerOffset = stickyHeader.offsetTop;
+      window.scrollTo({ top: headerOffset, behavior: 'smooth' });
+    } else {
+      // 폴백: 최상단으로 스크롤
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   // 카테고리별로 메뉴 그룹화 (카테고리 순서대로)
   const categoryGroups = categories
@@ -46,50 +57,25 @@ export default function Home() {
       <Header restaurant={restaurant} />
 
       <main>
-        {/* 검색 및 필터 섹션 */}
-        <section className="py-8 bg-white sticky top-0 z-10 shadow-sm">
+        {/* 카테고리 필터 섹션 (Sticky) */}
+        <section id="category-filter-section" className="py-4 bg-white sticky top-0 z-10 shadow-sm">
           <Container>
-            {/* 검색 바 */}
-            <div className="mb-4">
-              <SearchBar
-                value={searchQuery}
-                onChange={setSearchQuery}
-                placeholder="메뉴 이름으로 검색..."
-              />
-            </div>
-
-            {/* 카테고리 필터 */}
             <CategoryFilter
               categories={categories}
               selectedCategory={selectedCategory}
-              onCategoryChange={setSelectedCategory}
+              onCategoryChange={handleCategoryChange}
             />
           </Container>
         </section>
 
-        {/* 검색 결과가 있을 때 */}
-        {searchQuery && (
-          <section className="py-12 bg-white">
-            <Container>
-              <Heading3 className="mb-6">
-                검색 결과 ({filteredItems.length}개)
-              </Heading3>
-              <MenuGrid 
-                items={filteredItems}
-                emptyMessage="검색 결과가 없습니다. 다른 검색어를 입력해보세요."
-              />
-            </Container>
-          </section>
-        )}
-
-        {/* 검색하지 않았을 때 - 카테고리별 표시 */}
-        {!searchQuery && selectedCategory === 'all' && (
+        {/* 전체 카테고리 선택했을 때 - 카테고리별 표시 */}
+        {selectedCategory === 'all' && (
           <>
             {/* 인기/추천 메뉴 섹션 */}
             {popularItems.length > 0 && (
-              <section className="py-12 bg-gradient-to-r from-slate-100 to-blue-100">
+              <section className="py-12 bg-gradient-to-r from-[#FFF8E7] to-[#FFEED6]">
                 <Container>
-                  <Heading3 className="mb-6 text-[#1a2332]">
+                  <Heading3 className="mb-6 text-[#8B6F47]">
                     ⭐ 추천 메뉴
                   </Heading3>
                   <MenuGrid items={popularItems} />
@@ -126,7 +112,7 @@ export default function Home() {
         )}
 
         {/* 특정 카테고리 선택했을 때 */}
-        {!searchQuery && selectedCategory !== 'all' && (
+        {selectedCategory !== 'all' && (
           <section className="py-12 bg-white">
             <Container>
               {(() => {
@@ -158,7 +144,7 @@ export default function Home() {
       </main>
 
       {/* 푸터 */}
-      <footer className="bg-[#1a2332] text-white py-8">
+      <footer className="bg-[#B88654] text-white py-8">
         <Container>
           <div className="text-center text-sm text-gray-400">
             <p className="mb-2">&copy; 2025 {restaurant.name}. All rights reserved.</p>

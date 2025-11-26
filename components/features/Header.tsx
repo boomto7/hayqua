@@ -14,7 +14,7 @@ interface HeaderProps {
 
 export function Header({ restaurant }: HeaderProps) {
   return (
-    <header className="bg-[#1a2332] text-white py-12">
+    <header className="bg-[#B88654] text-white py-12">
       <Container>
         <div className="text-center">
           <Heading1 className="text-white mb-4">

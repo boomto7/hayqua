@@ -20,25 +20,27 @@ export function CategoryFilter({
   onCategoryChange 
 }: CategoryFilterProps) {
   return (
-    <div className="flex flex-wrap gap-2">
-      <Button
-        variant={selectedCategory === 'all' ? 'primary' : 'outline'}
-        size="md"
-        onClick={() => onCategoryChange('all')}
-      >
-        전체
-      </Button>
-      
-      {categories.map((category) => (
+    <div className="overflow-x-auto -mx-4 px-4 scrollbar-hide">
+      <div className="flex gap-2 min-w-max">
         <Button
-          key={category.id}
-          variant={selectedCategory === category.id ? 'primary' : 'outline'}
+          variant={selectedCategory === 'all' ? 'primary' : 'outline'}
           size="md"
-          onClick={() => onCategoryChange(category.id)}
+          onClick={() => onCategoryChange('all')}
         >
-          {category.name}
+          전체
         </Button>
-      ))}
+        
+        {categories.map((category) => (
+          <Button
+            key={category.id}
+            variant={selectedCategory === category.id ? 'primary' : 'outline'}
+            size="md"
+            onClick={() => onCategoryChange(category.id)}
+          >
+            {category.name}
+          </Button>
+        ))}
+      </div>
     </div>
   );
 }

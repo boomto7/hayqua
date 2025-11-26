@@ -6,7 +6,7 @@
 import { Restaurant } from '@/types';
 
 export const restaurantInfo: Restaurant = {
-  name: 'HAYQUA',
+  name: 'HAY QUA',
   description: '베트남 & 퓨전 요리 전문점',
   contact: {
     phone: '02-1234-5678',

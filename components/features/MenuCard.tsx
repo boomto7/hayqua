@@ -53,7 +53,7 @@ export function MenuCard({ item }: MenuCardProps) {
         </div>
       ) : (
         // 이미지가 없을 때 플레이스홀더
-        <div className="relative w-full h-64 bg-gradient-to-br from-[#2a3f5f] to-[#1a2332] flex items-center justify-center overflow-hidden">
+        <div className="relative w-full h-64 bg-gradient-to-br from-[#D4A574] to-[#B88654] flex items-center justify-center overflow-hidden">
           <div className="text-center z-10">
             <div className="text-6xl mb-3">🍜</div>
             <p className="text-sm text-gray-300 font-medium">이미지 준비중</p>
@@ -81,7 +81,7 @@ export function MenuCard({ item }: MenuCardProps) {
         <div className="flex-1">
           <div className="mb-2">
             <div className="flex items-center gap-2 mb-1">
-              <h3 className="text-xl font-bold text-[#1a2332]">
+              <h3 className="text-xl font-bold text-black">
                 {item.name}
               </h3>
               {item.spicyLevel && item.spicyLevel > 0 ? (
@@ -124,7 +124,7 @@ export function MenuCard({ item }: MenuCardProps) {
 
           {/* 노트 표시 */}
           {item.note && (
-            <p className="text-xs text-[#f4a460] mb-2">
+            <p className="text-xs text-[#8B6F47] mb-2">
               ※ {item.note}
             </p>
           )}
@@ -133,7 +133,7 @@ export function MenuCard({ item }: MenuCardProps) {
         {/* 가격 표시 */}
         {item.price && (
           <div className="mt-4">
-            <p className="text-lg font-semibold text-gray-900">
+            <p className="text-lg font-semibold text-gray-900 text-right">
               {formatPrice(item.price)}
             </p>
           </div>
