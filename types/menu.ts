@@ -29,6 +29,7 @@ export interface MenuItem {
   isPopular?: boolean;
   isNew?: boolean;
   isBest?: boolean;
+  spicyLevel?: number;  // 매운맛 단계: 0(안매움), 1(매움), 2(더매움), 3(아주매움)
   options?: MenuOption[];
   note?: string;
 }
@@ -38,6 +39,7 @@ export interface MenuCategory {
   name: string;
   nameEn: string;
   description: string;
+  order?: number;  // 카테고리 표시 순서
 }
 
 export interface Restaurant {

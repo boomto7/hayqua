@@ -30,11 +30,14 @@ export default function Home() {
 
   const { restaurant } = useRestaurant();
 
-  // 카테고리별로 메뉴 그룹화
-  const categoryGroups = categories.map(category => ({
-    category,
-    items: getItemsByCategory(category.id),
-  })).filter(group => group.items.length > 0);
+  // 카테고리별로 메뉴 그룹화 (카테고리 순서대로)
+  const categoryGroups = categories
+    .sort((a, b) => (a.order || 0) - (b.order || 0))  // order 필드로 정렬
+    .map(category => ({
+      category,
+      items: getItemsByCategory(category.id),
+    }))
+    .filter(group => group.items.length > 0);
 
   // UI 레이어: 프레젠테이션
   return (
@@ -84,10 +87,10 @@ export default function Home() {
           <>
             {/* 인기/추천 메뉴 섹션 */}
             {popularItems.length > 0 && (
-              <section className="py-12 bg-gradient-to-r from-amber-50 to-orange-50">
+              <section className="py-12 bg-gradient-to-r from-slate-100 to-blue-100">
                 <Container>
                   <Heading3 className="mb-6 text-[#1a2332]">
-                    🔥 추천 메뉴
+                    ⭐ 추천 메뉴
                   </Heading3>
                   <MenuGrid items={popularItems} />
                 </Container>

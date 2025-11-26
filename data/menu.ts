@@ -1,524 +1,570 @@
 /**
  * 메뉴 데이터
- * 실제 메뉴판을 기반으로 한 데이터입니다.
+ * 이 파일은 자동 생성됩니다. 직접 수정하지 마세요!
+ * 
+ * 데이터를 수정하려면:
+ * 1. data/category-database.md 파일로 카테고리를 관리하세요
+ * 2. data/menu-database.md 파일로 메뉴를 관리하세요
+ *    - 각 메뉴에 **카테고리** 필드를 숫자로 입력하세요 (1-8)
+ *    - **가격**은 숫자만 입력하세요 (예: 15000)
+ *    - **추천**, **BEST**는 1을 입력하세요
+ *    - **매운맛**은 0(안매움), 1(매움), 2(더매움), 3(아주매움)
+ *    - ID는 자동으로 순차적으로 생성됩니다 (1부터 시작)
+ *    - 카테고리 매핑은 menu-database.md 상단에 있습니다
+ * 3. npm run generate-menu 명령을 실행하세요
+ * 
+ * 마지막 생성: 2025. 11. 26. 오후 2:45:00
+ * 카테고리: 8개
+ * 메뉴: 57개
  */
 
 import { MenuItem, MenuCategory } from '@/types';
 
+/**
+ * 카테고리 목록
+ * category-database.md 파일의 순서대로 정렬됩니다.
+ */
 export const menuCategories: MenuCategory[] = [
   {
-    id: 'hotfood',
-    name: '안주류',
-    nameEn: 'Hot Food',
-    description: '14:00 ~ 영업시간까지',
+    "name": "칼국수",
+    "id": "pho",
+    "nameEn": "PHO NOODLE SOUP",
+    "description": "쌀국수 메뉴",
+    "order": 1
   },
   {
-    id: 'pho',
-    name: '칼국수',
-    nameEn: 'PHO NOODLE SOUP',
-    description: '쌀국수 메뉴',
+    "name": "볶음면",
+    "id": "friedNoodles",
+    "nameEn": "FRIED NOODLES",
+    "description": "팟타이",
+    "order": 2
   },
   {
-    id: 'friedNoodles',
-    name: '볶음면',
-    nameEn: 'FRIED NOODLES',
-    description: '팟타이',
+    "name": "볶음밥",
+    "id": "friedRice",
+    "nameEn": "FRIED RICE",
+    "description": "각종 볶음밥",
+    "order": 3
   },
   {
-    id: 'friedRice',
-    name: '볶음밥',
-    nameEn: 'FRIED RICE',
-    description: '각종 볶음밥',
+    "name": "스페셜메뉴",
+    "id": "special",
+    "nameEn": "SPECIAL MENU",
+    "description": "특별 메뉴",
+    "order": 4
   },
   {
-    id: 'special',
-    name: '스페셜메뉴',
-    nameEn: 'SPECIAL MENU',
-    description: '특별 메뉴',
+    "name": "애피타이져",
+    "id": "side",
+    "nameEn": "SIDE MENU",
+    "description": "사이드 메뉴",
+    "order": 5
   },
   {
-    id: 'side',
-    name: '애피타이져',
-    nameEn: 'SIDE MENU',
-    description: '사이드 메뉴',
+    "name": "안주류",
+    "id": "hotfood",
+    "nameEn": "Hot Food",
+    "description": "14:00 ~ 영업시간까지",
+    "order": 6
   },
   {
-    id: 'drink',
-    name: '음료',
-    nameEn: 'Drink',
-    description: '탄산음료, 주스, 에이드',
+    "name": "음료",
+    "id": "drink",
+    "nameEn": "Drink",
+    "description": "탄산음료, 주스, 에이드",
+    "order": 7
   },
   {
-    id: 'alcohol',
-    name: '주류',
-    nameEn: 'Alcoholic Beverages',
-    description: '소주, 맥주, 하이볼',
-  },
+    "name": "주류",
+    "id": "alcohol",
+    "nameEn": "Alcoholic Beverages",
+    "description": "소주, 맥주, 하이볼",
+    "order": 8
+  }
 ];
 
+/**
+ * 메뉴 아이템 목록
+ * menu-database.md 파일에서 생성됩니다.
+ * 각 메뉴는 카테고리 숫자(1-8)로 참조하며, ID는 자동 생성됩니다.
+ */
 export const menuItems: MenuItem[] = [
-  // 안주류 (Hot Food)
   {
-    id: 'h1',
-    name: '점보계란말이',
-    nameEn: 'Jumbo Egg',
-    price: 15000,
-    category: 'hotfood',
+    "name": "점보계란말이",
+    "category": "hotfood",
+    "nameEn": "Jumbo Egg",
+    "price": 15000,
+    "spicyLevel": 0,
+    "id": "1"
   },
   {
-    id: 'h2',
-    name: '새우완자계란탕',
-    nameEn: 'Shrimp Wantang Eggsoup',
-    price: 17000,
-    category: 'hotfood',
-    image: '/images/새우완자계란탕.jpeg',
+    "name": "새우완자계란탕",
+    "category": "hotfood",
+    "nameEn": "Shrimp Wantang Eggsoup",
+    "price": 17000,
+    "spicyLevel": 0,
+    "image": "/images/새우완자계란탕.jpeg",
+    "id": "2"
   },
   {
-    id: 'h3',
-    name: '통오징어 치킨 야끼우동',
-    nameEn: 'Whole Squid Chicken Yaki Udon',
-    price: 25000,
-    category: 'hotfood',
-    isPopular: true,
-    image: '/images/돌판통오징어치킨야끼우동.jpeg',
-    options: [
-      { name: '우동사리 추가', price: 2000 },
-      { name: '밥볶음사리', price: 4000 },
-    ],
+    "name": "통오징어 치킨 야끼우동",
+    "category": "hotfood",
+    "nameEn": "Whole Squid Chicken Yaki Udon",
+    "price": 25000,
+    "spicyLevel": 1,
+    "image": "/images/돌판통오징어치킨야끼우동.jpeg",
+    "isPopular": true,
+    "id": "3"
   },
   {
-    id: 'h4',
-    name: '통오징어 해물짬뽕',
-    nameEn: 'Whole Squid SeaFood Jjamppong',
-    price: 24000,
-    category: 'hotfood',
-    image: '/images/통오징어해물짬뽕.jpeg',
+    "name": "통오징어 해물짬뽕",
+    "category": "hotfood",
+    "nameEn": "Whole Squid SeaFood Jjamppong",
+    "price": 24000,
+    "spicyLevel": 2,
+    "image": "/images/통오징어해물짬뽕.jpeg",
+    "id": "4"
   },
   {
-    id: 'h5',
-    name: '통오징어 나가사끼짬뽕',
-    nameEn: 'Whole Squid Nagasaki Jjamppong',
-    price: 24000,
-    category: 'hotfood',
+    "name": "통오징어 나가사끼짬뽕",
+    "category": "hotfood",
+    "nameEn": "Whole Squid Nagasaki Jjamppong",
+    "price": 24000,
+    "spicyLevel": 2,
+    "id": "5"
   },
   {
-    id: 'h6',
-    name: '허니오리훈제 야채볶음',
-    nameEn: 'Stir-Gried Honey Duck Smokes Vegetables',
-    price: 18000,
-    category: 'hotfood',
+    "name": "허니오리훈제 야채볶음",
+    "category": "hotfood",
+    "nameEn": "Stir-Gried Honey Duck Smokes Vegetables",
+    "price": 18000,
+    "spicyLevel": 0,
+    "id": "6"
   },
   {
-    id: 'h7',
-    name: '케이준 감자튀김',
-    nameEn: 'Fried Kayju Potato',
-    price: 12000,
-    category: 'hotfood',
+    "name": "케이준 감자튀김",
+    "category": "hotfood",
+    "nameEn": "Fried Kayju Potato",
+    "price": 12000,
+    "spicyLevel": 1,
+    "id": "7"
   },
   {
-    id: 'h8',
-    name: '수제치킨 가라아게',
-    nameEn: 'Chicken Karaage',
-    price: 15000,
-    category: 'hotfood',
+    "name": "수제치킨 가라아게",
+    "category": "hotfood",
+    "nameEn": "Chicken Karaage",
+    "price": 15000,
+    "spicyLevel": 0,
+    "id": "8"
   },
   {
-    id: 'h9',
-    name: '불닭데리 숯불 닭꼬치',
-    nameEn: 'Roast chicken Deri Charcoal FireChicken Skewer',
-    price: 14000,
-    category: 'hotfood',
-    image: '/images/불닭데리숯불닭꼬치.jpeg',
+    "name": "불닭데리 숯불 닭꼬치",
+    "category": "hotfood",
+    "nameEn": "Roast chicken Deri Charcoal FireChicken Skewer",
+    "price": 14000,
+    "spicyLevel": 2,
+    "image": "/images/불닭데리숯불닭꼬치.jpeg",
+    "id": "9"
   },
   {
-    id: 'h10',
-    name: '투뿔 바삭 먹태',
-    nameEn: 'Two++ Crunchy Dried Pollack',
-    price: 16000,
-    category: 'hotfood',
+    "name": "투뿔 바삭 먹태",
+    "category": "hotfood",
+    "nameEn": "Two++ Crunchy Dried Pollack",
+    "price": 16000,
+    "spicyLevel": 0,
+    "id": "10"
   },
   {
-    id: 'h11',
-    name: '가돈어',
-    nameEn: 'A Fake Octopus',
-    price: 12000,
-    category: 'hotfood',
-  },
-
-  // 칼국수 (PHO NOODLE SOUP)
-  {
-    id: 'p1',
-    name: '자들양지 쌀국수',
-    nameEn: 'Brisket Pho',
-    price: 11500,
-    category: 'pho',
-    image: '/images/차돌양지쌀국수.png',
+    "name": "가돈어",
+    "category": "hotfood",
+    "nameEn": "A Fake Octopus",
+    "price": 12000,
+    "spicyLevel": 0,
+    "id": "11"
   },
   {
-    id: 'p2',
-    name: '자들박이쌀국수',
-    nameEn: 'Flank Pho',
-    price: 13000,
-    category: 'pho',
-    image: '/images/매운양지쌀국수.jpeg',
+    "name": "자들양지 쌀국수",
+    "category": "pho",
+    "nameEn": "Brisket Pho",
+    "price": 11500,
+    "spicyLevel": 0,
+    "image": "/images/차돌양지쌀국수.png",
+    "id": "12"
   },
   {
-    id: 'p3',
-    name: '닭고기 버섯 쌀국수',
-    nameEn: 'Chicken Mushroom Pho',
-    price: 12500,
-    category: 'pho',
-    isBest: true,
-    image: '/images/닭고기버섯쌀국수.jpeg',
+    "name": "자들박이쌀국수",
+    "category": "pho",
+    "nameEn": "Flank Pho",
+    "price": 13000,
+    "spicyLevel": 1,
+    "image": "/images/매운양지쌀국수.jpeg",
+    "id": "13"
   },
   {
-    id: 'p4',
-    name: '새우완탕 버섯 쌀국수',
-    nameEn: 'Shrimp Wantang Mushroom Pho',
-    price: 14000,
-    category: 'pho',
-    isPopular: true,
-    image: '/images/새우완탕쌀국수.jpeg',
-    note: '매운맛 변경 시 +1,000원',
+    "name": "닭고기 버섯 쌀국수",
+    "category": "pho",
+    "nameEn": "Chicken Mushroom Pho",
+    "price": 12500,
+    "spicyLevel": 0,
+    "image": "/images/닭고기버섯쌀국수.jpeg",
+    "isBest": true,
+    "id": "14"
   },
   {
-    id: 'p5',
-    name: '통오징어 해산물 쌀국수',
-    nameEn: 'Whole Squid Seafood Pho',
-    price: 16000,
-    category: 'pho',
-    isBest: true,
-    image: '/images/통오징어_해산물_쌀국수.png',
-    note: '매운맛 변경 시 +1,000원',
-  },
-
-  // 볶음면 (FRIED NOODLES)
-  {
-    id: 'fn1',
-    name: '팟타이',
-    nameEn: 'Phat Thai',
-    price: 13500,
-    category: 'friedNoodles',
-    isPopular: true,
-    image: '/images/팟타이.jpeg',
+    "name": "새우완탕 버섯 쌀국수",
+    "category": "pho",
+    "nameEn": "Shrimp Wantang Mushroom Pho",
+    "price": 14000,
+    "spicyLevel": 0,
+    "image": "/images/새우완탕쌀국수.jpeg",
+    "isPopular": true,
+    "note": "매운맛 변경 시 +1,000원",
+    "id": "15"
   },
   {
-    id: 'fn2',
-    name: '치킨 팟타이',
-    nameEn: 'Chicken Phat Thai',
-    price: 14500,
-    category: 'friedNoodles',
-  },
-
-  // 볶음밥 (FRIED RICE)
-  {
-    id: 'fr1',
-    name: '파인애플 볶음밥',
-    nameEn: 'Pineapple Fried Rice',
-    price: 13000,
-    category: 'friedRice',
-    image: '/images/파인애플볶음밥.jpeg',
+    "name": "통오징어 해산물 쌀국수",
+    "category": "pho",
+    "nameEn": "Whole Squid Seafood Pho",
+    "price": 16000,
+    "spicyLevel": 0,
+    "image": "/images/통오징어_해산물_쌀국수.png",
+    "isBest": true,
+    "note": "매운맛 변경 시 +1,000원",
+    "id": "16"
   },
   {
-    id: 'fr2',
-    name: '소불고기 볶음밥',
-    nameEn: 'Beef Bulgogi Rice',
-    price: 14000,
-    category: 'friedRice',
-    image: '/images/소불고기볶음밥.jpeg',
+    "name": "팟타이",
+    "category": "friedNoodles",
+    "nameEn": "Phat Thai",
+    "price": 13500,
+    "spicyLevel": 0,
+    "image": "/images/팟타이.jpeg",
+    "isPopular": true,
+    "id": "17"
   },
   {
-    id: 'fr3',
-    name: '통오징어 해산물 볶음밥',
-    nameEn: 'Whole Squid Seafood Rice',
-    price: 16000,
-    category: 'friedRice',
-    isPopular: true,
-    image: '/images/통오징어해산물볶음밥.jpeg',
-  },
-
-  // 스페셜메뉴 (SPECIAL MENU)
-  {
-    id: 'sp1',
-    name: '분짜',
-    nameEn: 'Bun Cha',
-    price: 15500,
-    category: 'special',
-    image: '/images/분짜.jpeg',
-  },
-
-  // 애피타이져 (SIDE MENU)
-  {
-    id: 's1',
-    name: '에그롤',
-    nameEn: 'Egg Rolls (sweet potato, Shrimp)',
-    category: 'side',
-    options: [
-      { name: '(고구마 2 / 새우 2) 4 PCS', price: 4900 },
-      { name: '(고구마 3 / 새우 3) 6 PCS', price: 6900 },
-    ],
+    "name": "치킨 팟타이",
+    "category": "friedNoodles",
+    "nameEn": "Chicken Phat Thai",
+    "price": 14500,
+    "spicyLevel": 0,
+    "id": "18"
   },
   {
-    id: 's2',
-    name: '새우고로케',
-    nameEn: 'Shrimp Croquette',
-    category: 'side',
-    options: [
-      { name: '4 CUT', price: 4900 },
-      { name: '6 CUT', price: 6900 },
-    ],
+    "name": "파인애플 볶음밥",
+    "category": "friedRice",
+    "nameEn": "Pineapple Fried Rice",
+    "price": 13000,
+    "spicyLevel": 0,
+    "image": "/images/파인애플볶음밥.jpeg",
+    "id": "19"
   },
   {
-    id: 's3',
-    name: '해물쪄조',
-    nameEn: 'Sea food Cha Gio',
-    category: 'side',
-    options: [
-      { name: '4 CUT', price: 4900 },
-      { name: '6 CUT', price: 6900 },
-    ],
+    "name": "소불고기 볶음밥",
+    "category": "friedRice",
+    "nameEn": "Beef Bulgogi Rice",
+    "price": 14000,
+    "spicyLevel": 0,
+    "image": "/images/소불고기볶음밥.jpeg",
+    "id": "20"
   },
   {
-    id: 's4',
-    name: '새우튀김',
-    nameEn: 'Fried Shrimp',
-    category: 'side',
-    options: [
-      { name: '4 PCS', price: 4900 },
-      { name: '6 PCS', price: 6900 },
-    ],
+    "name": "통오징어 해산물 볶음밥",
+    "category": "friedRice",
+    "nameEn": "Whole Squid Seafood Rice",
+    "price": 16000,
+    "spicyLevel": 1,
+    "image": "/images/통오징어해산물볶음밥.jpeg",
+    "isPopular": true,
+    "id": "21"
   },
   {
-    id: 's5',
-    name: '버팔로윙',
-    nameEn: 'Buffalo Wing',
-    category: 'side',
-    options: [
-      { name: '4 PCS', price: 5900 },
-      { name: '6 PCS', price: 7900 },
-    ],
+    "name": "분짜",
+    "category": "special",
+    "nameEn": "Bun Cha",
+    "price": 15500,
+    "spicyLevel": 0,
+    "image": "/images/분짜.jpeg",
+    "id": "22"
   },
   {
-    id: 's6',
-    name: '버팔로봉',
-    nameEn: 'Buffalo Bong',
-    category: 'side',
-    options: [
-      { name: '4 PCS', price: 5900 },
-      { name: '6 PCS', price: 7900 },
-    ],
-  },
-
-  // 음료 (Drink)
-  {
-    id: 'd1',
-    name: '콜라',
-    nameEn: 'Coke',
-    price: 2500,
-    category: 'drink',
+    "name": "에그롤",
+    "category": "side",
+    "nameEn": "Egg Rolls (sweet potato, Shrimp)",
+    "spicyLevel": 0,
+    "id": "23"
   },
   {
-    id: 'd2',
-    name: '사이다',
-    nameEn: 'Sider',
-    price: 2500,
-    category: 'drink',
+    "name": "새우고로케",
+    "category": "side",
+    "nameEn": "Shrimp Croquette",
+    "spicyLevel": 0,
+    "id": "24"
   },
   {
-    id: 'd3',
-    name: '웰치스 포도',
-    nameEn: 'Welchs Grape',
-    price: 3000,
-    category: 'drink',
+    "name": "해물쪄조",
+    "category": "side",
+    "nameEn": "Sea food Cha Gio",
+    "spicyLevel": 0,
+    "id": "25"
   },
   {
-    id: 'd4',
-    name: '망고 주스',
-    nameEn: 'Mango Juice',
-    price: 4000,
-    category: 'drink',
+    "name": "새우튀김",
+    "category": "side",
+    "nameEn": "Fried Shrimp",
+    "spicyLevel": 0,
+    "id": "26"
   },
   {
-    id: 'd5',
-    name: '오렌지 주스',
-    nameEn: 'Orange Juice',
-    price: 4000,
-    category: 'drink',
+    "name": "버팔로윙",
+    "category": "side",
+    "nameEn": "Buffalo Wing",
+    "spicyLevel": 1,
+    "id": "27"
   },
   {
-    id: 'd6',
-    name: '복숭아 아이스티',
-    nameEn: 'Peach Ice Tea',
-    price: 4000,
-    category: 'drink',
+    "name": "버팔로봉",
+    "category": "side",
+    "nameEn": "Buffalo Bong",
+    "spicyLevel": 1,
+    "id": "28"
   },
   {
-    id: 'd7',
-    name: '자몽 에이드',
-    nameEn: 'Grapefruit Ade',
-    price: 5000,
-    category: 'drink',
+    "name": "콜라",
+    "category": "drink",
+    "nameEn": "Coke",
+    "price": 2500,
+    "spicyLevel": 0,
+    "id": "29"
   },
   {
-    id: 'd8',
-    name: '레몬 에이드',
-    nameEn: 'Lemon Ade',
-    price: 5000,
-    category: 'drink',
+    "name": "사이다",
+    "category": "drink",
+    "nameEn": "Sider",
+    "price": 2500,
+    "spicyLevel": 0,
+    "id": "30"
   },
   {
-    id: 'd9',
-    name: '청포도 에이드',
-    nameEn: 'Green Grape Ade',
-    price: 5000,
-    category: 'drink',
+    "name": "웰치스 포도",
+    "category": "drink",
+    "nameEn": "Welchs Grape",
+    "price": 3000,
+    "spicyLevel": 0,
+    "id": "31"
   },
   {
-    id: 'd10',
-    name: '모히토 에이드',
-    nameEn: 'Mojito Ade',
-    price: 5000,
-    category: 'drink',
+    "name": "망고 주스",
+    "category": "drink",
+    "nameEn": "Mango Juice",
+    "price": 4000,
+    "spicyLevel": 0,
+    "id": "32"
   },
   {
-    id: 'd11',
-    name: '라즈베리 에이드',
-    nameEn: 'Raspberry Ade',
-    price: 5000,
-    category: 'drink',
-  },
-
-  // 주류 (Alcoholic Beverages)
-  {
-    id: 'a1',
-    name: '산토리 하이볼',
-    nameEn: 'Suntory High Ball 380ml',
-    price: 7000,
-    category: 'alcohol',
-    note: '샷추가 +2,000원',
+    "name": "오렌지 주스",
+    "category": "drink",
+    "nameEn": "Orange Juice",
+    "price": 4000,
+    "spicyLevel": 0,
+    "id": "33"
   },
   {
-    id: 'a2',
-    name: '진빔 하이볼',
-    nameEn: 'Jinbeam High Ball 380ml',
-    price: 7000,
-    category: 'alcohol',
-    note: '샷추가 +2,000원',
+    "name": "복숭아 아이스티",
+    "category": "drink",
+    "nameEn": "Peach Ice Tea",
+    "price": 4000,
+    "spicyLevel": 0,
+    "id": "34"
   },
   {
-    id: 'a3',
-    name: '모히토 하이볼',
-    nameEn: 'Mojito High Ball 380ml',
-    price: 8000,
-    category: 'alcohol',
-    note: '샷추가 +2,000원',
+    "name": "자몽 에이드",
+    "category": "drink",
+    "nameEn": "Grapefruit Ade",
+    "price": 5000,
+    "spicyLevel": 0,
+    "id": "35"
   },
   {
-    id: 'a4',
-    name: '자몽 하이볼',
-    nameEn: 'Grapefruit High Ball 380ml',
-    price: 8000,
-    category: 'alcohol',
-    note: '샷추가 +2,000원',
+    "name": "레몬 에이드",
+    "category": "drink",
+    "nameEn": "Lemon Ade",
+    "price": 5000,
+    "spicyLevel": 0,
+    "id": "36"
   },
   {
-    id: 'a5',
-    name: '얼그레이 하이볼',
-    nameEn: 'Earl Grey High Ball 380ml',
-    price: 8000,
-    category: 'alcohol',
-    note: '샷추가 +2,000원',
+    "name": "청포도 에이드",
+    "category": "drink",
+    "nameEn": "Green Grape Ade",
+    "price": 5000,
+    "spicyLevel": 0,
+    "id": "37"
   },
   {
-    id: 'a6',
-    name: '라즈베리 하이볼',
-    nameEn: 'Raspberry High Ball 380ml',
-    price: 8000,
-    category: 'alcohol',
-    note: '샷추가 +2,000원',
+    "name": "모히토 에이드",
+    "category": "drink",
+    "nameEn": "Mojito Ade",
+    "price": 5000,
+    "spicyLevel": 0,
+    "id": "38"
   },
   {
-    id: 'a7',
-    name: '참이슬',
-    nameEn: 'Soju',
-    price: 5000,
-    category: 'alcohol',
+    "name": "라즈베리 에이드",
+    "category": "drink",
+    "nameEn": "Raspberry Ade",
+    "price": 5000,
+    "spicyLevel": 0,
+    "id": "39"
   },
   {
-    id: 'a8',
-    name: '자몽처럼',
-    nameEn: 'Soju',
-    price: 5000,
-    category: 'alcohol',
+    "name": "산토리 하이볼",
+    "category": "alcohol",
+    "nameEn": "Suntory High Ball 380ml",
+    "price": 7000,
+    "spicyLevel": 0,
+    "note": "샷추가 +2,000원",
+    "id": "40"
   },
   {
-    id: 'a9',
-    name: '진로',
-    nameEn: 'Soju',
-    price: 5000,
-    category: 'alcohol',
+    "name": "진빔 하이볼",
+    "category": "alcohol",
+    "nameEn": "Jinbeam High Ball 380ml",
+    "price": 7000,
+    "spicyLevel": 0,
+    "note": "샷추가 +2,000원",
+    "id": "41"
   },
   {
-    id: 'a10',
-    name: '새로',
-    nameEn: 'Soju',
-    price: 5000,
-    category: 'alcohol',
+    "name": "모히토 하이볼",
+    "category": "alcohol",
+    "nameEn": "Mojito High Ball 380ml",
+    "price": 8000,
+    "spicyLevel": 0,
+    "note": "샷추가 +2,000원",
+    "id": "42"
   },
   {
-    id: 'a11',
-    name: '청하',
-    nameEn: 'Chungha',
-    price: 5500,
-    category: 'alcohol',
+    "name": "자몽 하이볼",
+    "category": "alcohol",
+    "nameEn": "Grapefruit High Ball 380ml",
+    "price": 8000,
+    "spicyLevel": 0,
+    "note": "샷추가 +2,000원",
+    "id": "43"
   },
   {
-    id: 'a12',
-    name: '테라 생맥주',
-    nameEn: 'Terra Draft Beer 180ml',
-    price: 2000,
-    category: 'alcohol',
+    "name": "얼그레이 하이볼",
+    "category": "alcohol",
+    "nameEn": "Earl Grey High Ball 380ml",
+    "price": 8000,
+    "spicyLevel": 0,
+    "note": "샷추가 +2,000원",
+    "id": "44"
   },
   {
-    id: 'a13',
-    name: '테라 생맥주',
-    nameEn: 'Terra Draft Beer 450ml',
-    price: 5000,
-    category: 'alcohol',
+    "name": "라즈베리 하이볼",
+    "category": "alcohol",
+    "nameEn": "Raspberry High Ball 380ml",
+    "price": 8000,
+    "spicyLevel": 0,
+    "note": "샷추가 +2,000원",
+    "id": "45"
   },
   {
-    id: 'a14',
-    name: '자몽 생맥주',
-    nameEn: 'Grapefruit Draft Beer 400ml',
-    price: 7000,
-    category: 'alcohol',
+    "name": "참이슬",
+    "category": "alcohol",
+    "nameEn": "Soju",
+    "price": 5000,
+    "spicyLevel": 0,
+    "id": "46"
   },
   {
-    id: 'a15',
-    name: '레몬 생맥주',
-    nameEn: 'Lemon Draft Beer 400ml',
-    price: 7000,
-    category: 'alcohol',
+    "name": "자몽처럼",
+    "category": "alcohol",
+    "nameEn": "Soju",
+    "price": 5000,
+    "spicyLevel": 0,
+    "id": "47"
   },
   {
-    id: 'a16',
-    name: '청포도 생맥주',
-    nameEn: 'Green Grape Draft Beer 400ml',
-    price: 7000,
-    category: 'alcohol',
+    "name": "진로",
+    "category": "alcohol",
+    "nameEn": "Soju",
+    "price": 5000,
+    "spicyLevel": 0,
+    "id": "48"
   },
   {
-    id: 'a17',
-    name: '카스',
-    nameEn: 'Cass 500ml',
-    price: 5500,
-    category: 'alcohol',
+    "name": "새로",
+    "category": "alcohol",
+    "nameEn": "Soju",
+    "price": 5000,
+    "spicyLevel": 0,
+    "id": "49"
   },
   {
-    id: 'a18',
-    name: '테라',
-    nameEn: 'Terra 500ml',
-    price: 5500,
-    category: 'alcohol',
+    "name": "청하",
+    "category": "alcohol",
+    "nameEn": "Chungha",
+    "price": 5500,
+    "spicyLevel": 0,
+    "id": "50"
   },
+  {
+    "name": "테라 생맥주 (180ml)",
+    "category": "alcohol",
+    "nameEn": "Terra Draft Beer 180ml",
+    "price": 2000,
+    "spicyLevel": 0,
+    "id": "51"
+  },
+  {
+    "name": "테라 생맥주 (450ml)",
+    "category": "alcohol",
+    "nameEn": "Terra Draft Beer 450ml",
+    "price": 5000,
+    "spicyLevel": 0,
+    "id": "52"
+  },
+  {
+    "name": "자몽 생맥주",
+    "category": "alcohol",
+    "nameEn": "Grapefruit Draft Beer 400ml",
+    "price": 7000,
+    "spicyLevel": 0,
+    "id": "53"
+  },
+  {
+    "name": "레몬 생맥주",
+    "category": "alcohol",
+    "nameEn": "Lemon Draft Beer 400ml",
+    "price": 7000,
+    "spicyLevel": 0,
+    "id": "54"
+  },
+  {
+    "name": "청포도 생맥주",
+    "category": "alcohol",
+    "nameEn": "Green Grape Draft Beer 400ml",
+    "price": 7000,
+    "spicyLevel": 0,
+    "id": "55"
+  },
+  {
+    "name": "카스",
+    "category": "alcohol",
+    "nameEn": "Cass 500ml",
+    "price": 5500,
+    "spicyLevel": 0,
+    "id": "56"
+  },
+  {
+    "name": "테라",
+    "category": "alcohol",
+    "nameEn": "Terra 500ml",
+    "price": 5500,
+    "spicyLevel": 0,
+    "id": "57"
+  }
 ];
