@@ -71,6 +71,7 @@ export const menuItems: MenuItem[] = [
     nameEn: 'Shrimp Wantang Eggsoup',
     price: 17000,
     category: 'hotfood',
+    image: '/images/새우완자계란탕.jpeg',
   },
   {
     id: 'h3',
@@ -79,6 +80,7 @@ export const menuItems: MenuItem[] = [
     price: 25000,
     category: 'hotfood',
     isPopular: true,
+    image: '/images/돌판통오징어치킨야끼우동.jpeg',
     options: [
       { name: '우동사리 추가', price: 2000 },
       { name: '밥볶음사리', price: 4000 },
@@ -90,6 +92,7 @@ export const menuItems: MenuItem[] = [
     nameEn: 'Whole Squid SeaFood Jjamppong',
     price: 24000,
     category: 'hotfood',
+    image: '/images/통오징어해물짬뽕.jpeg',
   },
   {
     id: 'h5',
@@ -125,6 +128,7 @@ export const menuItems: MenuItem[] = [
     nameEn: 'Roast chicken Deri Charcoal FireChicken Skewer',
     price: 14000,
     category: 'hotfood',
+    image: '/images/불닭데리숯불닭꼬치.jpeg',
   },
   {
     id: 'h10',
@@ -148,6 +152,7 @@ export const menuItems: MenuItem[] = [
     nameEn: 'Brisket Pho',
     price: 11500,
     category: 'pho',
+    image: '/images/차돌양지쌀국수.png',
   },
   {
     id: 'p2',
@@ -155,6 +160,7 @@ export const menuItems: MenuItem[] = [
     nameEn: 'Flank Pho',
     price: 13000,
     category: 'pho',
+    image: '/images/매운양지쌀국수.jpeg',
   },
   {
     id: 'p3',
@@ -163,6 +169,7 @@ export const menuItems: MenuItem[] = [
     price: 12500,
     category: 'pho',
     isBest: true,
+    image: '/images/닭고기버섯쌀국수.jpeg',
   },
   {
     id: 'p4',
@@ -171,6 +178,7 @@ export const menuItems: MenuItem[] = [
     price: 14000,
     category: 'pho',
     isPopular: true,
+    image: '/images/새우완탕쌀국수.jpeg',
     note: '매운맛 변경 시 +1,000원',
   },
   {
@@ -180,6 +188,7 @@ export const menuItems: MenuItem[] = [
     price: 16000,
     category: 'pho',
     isBest: true,
+    image: '/images/통오징어_해산물_쌀국수.png',
     note: '매운맛 변경 시 +1,000원',
   },
 
@@ -191,6 +200,7 @@ export const menuItems: MenuItem[] = [
     price: 13500,
     category: 'friedNoodles',
     isPopular: true,
+    image: '/images/팟타이.jpeg',
   },
   {
     id: 'fn2',
@@ -207,6 +217,7 @@ export const menuItems: MenuItem[] = [
     nameEn: 'Pineapple Fried Rice',
     price: 13000,
     category: 'friedRice',
+    image: '/images/파인애플볶음밥.jpeg',
   },
   {
     id: 'fr2',
@@ -214,6 +225,7 @@ export const menuItems: MenuItem[] = [
     nameEn: 'Beef Bulgogi Rice',
     price: 14000,
     category: 'friedRice',
+    image: '/images/소불고기볶음밥.jpeg',
   },
   {
     id: 'fr3',
@@ -222,6 +234,7 @@ export const menuItems: MenuItem[] = [
     price: 16000,
     category: 'friedRice',
     isPopular: true,
+    image: '/images/통오징어해산물볶음밥.jpeg',
   },
 
   // 스페셜메뉴 (SPECIAL MENU)
@@ -231,6 +244,7 @@ export const menuItems: MenuItem[] = [
     nameEn: 'Bun Cha',
     price: 15500,
     category: 'special',
+    image: '/images/분짜.jpeg',
   },
 
   // 애피타이져 (SIDE MENU)

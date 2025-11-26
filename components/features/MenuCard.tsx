@@ -6,6 +6,7 @@
 
 'use client';
 
+import Image from 'next/image';
 import { MenuItem } from '@/types';
 import { Card, CardBody, Badge } from '@/components/ui';
 
@@ -20,20 +21,19 @@ export function MenuCard({ item }: MenuCardProps) {
 
   return (
     <Card hover className="h-full">
-      <CardBody className="flex flex-col h-full">
-        <div className="flex-1">
-          <div className="flex items-start justify-between mb-2">
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                {item.name}
-              </h3>
-              {item.nameEn && (
-                <p className="text-xs text-gray-500">
-                  {item.nameEn}
-                </p>
-              )}
-            </div>
-            <div className="flex flex-col gap-1 ml-2">
+      {/* 이미지 영역 */}
+      {item.image ? (
+        <div className="relative w-full h-48 bg-gray-100">
+          <Image
+            src={item.image}
+            alt={item.name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+          {/* 배지를 이미지 위에 표시 */}
+          {(item.isPopular || item.isBest) && (
+            <div className="absolute top-2 right-2 flex flex-col gap-1">
               {item.isPopular && (
                 <Badge variant="danger" size="sm">추천</Badge>
               )}
@@ -41,6 +41,40 @@ export function MenuCard({ item }: MenuCardProps) {
                 <Badge variant="warning" size="sm">BEST</Badge>
               )}
             </div>
+          )}
+        </div>
+      ) : (
+        // 이미지가 없을 때 플레이스홀더
+        <div className="relative w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+          <div className="text-center">
+            <div className="text-4xl mb-2">🍜</div>
+            <p className="text-xs text-gray-400">이미지 준비중</p>
+          </div>
+          {/* 배지를 플레이스홀더 위에 표시 */}
+          {(item.isPopular || item.isBest) && (
+            <div className="absolute top-2 right-2 flex flex-col gap-1">
+              {item.isPopular && (
+                <Badge variant="danger" size="sm">추천</Badge>
+              )}
+              {item.isBest && (
+                <Badge variant="warning" size="sm">BEST</Badge>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+
+      <CardBody className="flex flex-col h-full">
+        <div className="flex-1">
+          <div className="mb-2">
+            <h3 className="text-lg font-semibold text-gray-900 mb-1">
+              {item.name}
+            </h3>
+            {item.nameEn && (
+              <p className="text-xs text-gray-500">
+                {item.nameEn}
+              </p>
+            )}
           </div>
           
           {item.description && (
