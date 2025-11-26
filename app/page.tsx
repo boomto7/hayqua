@@ -84,9 +84,9 @@ export default function Home() {
           <>
             {/* 인기/추천 메뉴 섹션 */}
             {popularItems.length > 0 && (
-              <section className="py-12 bg-gradient-to-r from-red-50 to-orange-50">
+              <section className="py-12 bg-gradient-to-r from-amber-50 to-orange-50">
                 <Container>
-                  <Heading3 className="mb-6 text-red-700">
+                  <Heading3 className="mb-6 text-[#1a2332]">
                     🔥 추천 메뉴
                   </Heading3>
                   <MenuGrid items={popularItems} />
@@ -155,7 +155,7 @@ export default function Home() {
       </main>
 
       {/* 푸터 */}
-      <footer className="bg-gray-800 text-white py-8">
+      <footer className="bg-[#1a2332] text-white py-8">
         <Container>
           <div className="text-center text-sm text-gray-400">
             <p className="mb-2">&copy; 2025 {restaurant.name}. All rights reserved.</p>

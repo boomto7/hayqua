@@ -23,17 +23,20 @@ export function MenuCard({ item }: MenuCardProps) {
     <Card hover className="h-full">
       {/* 이미지 영역 */}
       {item.image ? (
-        <div className="relative w-full h-48 bg-gray-100">
+        <div className="relative w-full h-64 bg-gray-100 overflow-hidden group">
           <Image
             src={item.image}
             alt={item.name}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
+          {/* 호버 시 오버레이 */}
+          <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+          
           {/* 배지를 이미지 위에 표시 */}
           {(item.isPopular || item.isBest) && (
-            <div className="absolute top-2 right-2 flex flex-col gap-1">
+            <div className="absolute top-3 right-3 flex flex-col gap-2 z-10">
               {item.isPopular && (
                 <Badge variant="danger" size="sm">추천</Badge>
               )}
@@ -45,14 +48,19 @@ export function MenuCard({ item }: MenuCardProps) {
         </div>
       ) : (
         // 이미지가 없을 때 플레이스홀더
-        <div className="relative w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-          <div className="text-center">
-            <div className="text-4xl mb-2">🍜</div>
-            <p className="text-xs text-gray-400">이미지 준비중</p>
+        <div className="relative w-full h-64 bg-gradient-to-br from-[#2a3f5f] to-[#1a2332] flex items-center justify-center overflow-hidden">
+          <div className="text-center z-10">
+            <div className="text-6xl mb-3">🍜</div>
+            <p className="text-sm text-gray-300 font-medium">이미지 준비중</p>
           </div>
+          {/* 배경 패턴 */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')]"></div>
+          </div>
+          
           {/* 배지를 플레이스홀더 위에 표시 */}
           {(item.isPopular || item.isBest) && (
-            <div className="absolute top-2 right-2 flex flex-col gap-1">
+            <div className="absolute top-3 right-3 flex flex-col gap-2 z-10">
               {item.isPopular && (
                 <Badge variant="danger" size="sm">추천</Badge>
               )}
@@ -64,10 +72,10 @@ export function MenuCard({ item }: MenuCardProps) {
         </div>
       )}
 
-      <CardBody className="flex flex-col h-full">
+      <CardBody className="flex flex-col h-full p-5">
         <div className="flex-1">
           <div className="mb-2">
-            <h3 className="text-lg font-semibold text-gray-900 mb-1">
+            <h3 className="text-xl font-bold text-[#1a2332] mb-1">
               {item.name}
             </h3>
             {item.nameEn && (
@@ -99,7 +107,7 @@ export function MenuCard({ item }: MenuCardProps) {
 
           {/* 노트 표시 */}
           {item.note && (
-            <p className="text-xs text-blue-600 mb-2">
+            <p className="text-xs text-[#f4a460] mb-2">
               ※ {item.note}
             </p>
           )}
@@ -108,7 +116,7 @@ export function MenuCard({ item }: MenuCardProps) {
         {/* 가격 표시 (옵션이 없는 경우만) */}
         {item.price && (
           <div className="mt-auto pt-3 border-t border-gray-100">
-            <p className="text-xl font-bold text-blue-600">
+            <p className="text-2xl font-bold text-[#f4a460]">
               {formatPrice(item.price)}
             </p>
           </div>

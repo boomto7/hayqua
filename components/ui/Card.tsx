@@ -13,8 +13,8 @@ interface CardProps {
 }
 
 export function Card({ children, className = '', hover = false, onClick }: CardProps) {
-  const baseStyles = 'bg-white rounded-lg shadow-md overflow-hidden';
-  const hoverStyles = hover ? 'transition-transform hover:scale-105 hover:shadow-lg cursor-pointer' : '';
+  const baseStyles = 'bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100';
+  const hoverStyles = hover ? 'transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer hover:border-[#f4a460]' : '';
   
   return (
     <div 

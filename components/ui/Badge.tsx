@@ -16,11 +16,11 @@ interface BadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  primary: 'bg-blue-100 text-blue-800',
-  success: 'bg-green-100 text-green-800',
-  warning: 'bg-yellow-100 text-yellow-800',
-  danger: 'bg-red-100 text-red-800',
-  info: 'bg-gray-100 text-gray-800',
+  primary: 'bg-[#1a2332] text-white',
+  success: 'bg-green-500 text-white',
+  warning: 'bg-[#f4a460] text-white',
+  danger: 'bg-red-500 text-white',
+  info: 'bg-gray-500 text-white',
 };
 
 const sizeStyles: Record<BadgeSize, string> = {

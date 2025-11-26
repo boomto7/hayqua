@@ -23,7 +23,7 @@ export function MenuGrid({ items, emptyMessage = '메뉴가 없습니다.' }: Me
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
       {items.map((item) => (
         <MenuCard key={item.id} item={item} />
       ))}
