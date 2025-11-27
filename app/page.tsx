@@ -6,6 +6,8 @@
 
 'use client';
 
+import { Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Container, Heading3, Heading4 } from '@/components/ui';
 import { 
   Header, 
@@ -14,7 +16,11 @@ import {
 } from '@/components/features';
 import { useMenu, useRestaurant } from '@/hooks';
 
-export default function Home() {
+function HomeContent() {
+  const searchParams = useSearchParams();
+  const isNightParam = searchParams?.get('isNight');
+  const isNightMode = isNightParam === '1';
+
   // 데이터 레이어: 비즈니스 로직과 상태 관리
   const {
     filteredItems,
@@ -23,7 +29,7 @@ export default function Home() {
     selectedCategory,
     setSelectedCategory,
     getItemsByCategory,
-  } = useMenu();
+  } = useMenu({ isNightMode });
 
   const { restaurant } = useRestaurant();
 
@@ -153,5 +159,19 @@ export default function Home() {
         </Container>
       </footer>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-gray-600">로딩 중...</p>
+        </div>
+      </div>
+    }>
+      <HomeContent />
+    </Suspense>
   );
 }

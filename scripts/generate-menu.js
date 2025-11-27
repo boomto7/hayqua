@@ -41,6 +41,12 @@ function parseCategoriesFromMarkdown(markdown) {
       currentCategory.nameEn = line.replace('- **영문명**:', '').trim();
     } else if (line.startsWith('- **설명**:')) {
       currentCategory.description = line.replace('- **설명**:', '').trim();
+    } else if (line.startsWith('- **나이트**:')) {
+      const nightValue = line.replace('- **나이트**:', '').trim();
+      const isNight = parseInt(nightValue, 10);
+      if (!isNaN(isNight) && isNight === 1) {
+        currentCategory.isNight = 1;
+      }
     }
   }
   
@@ -237,6 +243,12 @@ function parseMenuFromMarkdown(markdown, categoryMapping) {
       // 숫자 1 또는 ⭐ 모두 인식
       const value = line.replace('- **BEST**:', '').trim();
       currentItem.isBest = value === '1' || value.includes('⭐');
+    } else if (line.startsWith('- **나이트**:')) {
+      const nightValue = line.replace('- **나이트**:', '').trim();
+      const isNight = parseInt(nightValue, 10);
+      if (!isNaN(isNight) && isNight === 1) {
+        currentItem.isNight = 1;
+      }
     } else if (line.startsWith('- **비고**:')) {
       currentItem.note = line.replace('- **비고**:', '').trim() || undefined;
     } else if (rawLine.startsWith('  - ') && !line.startsWith('- **옵션**:')) {
@@ -315,6 +327,7 @@ export interface MenuItem {
   isNew?: boolean;
   isBest?: boolean;
   spicyLevel?: number;  // 매운맛 단계: 0(안매움), 1(매움), 2(더매움), 3(아주매움)
+  isNight?: number;     // 나이트 메뉴: 0 또는 없음(일반), 1(나이트)
   options?: MenuOption[];
   note?: string;
 }
@@ -325,6 +338,7 @@ export interface MenuCategory {
   nameEn: string;
   description: string;
   order?: number;  // 카테고리 표시 순서
+  isNight?: number;  // 나이트 카테고리: 0 또는 없음(일반), 1(나이트)
 }
 
 export interface Restaurant {

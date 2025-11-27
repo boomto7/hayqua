@@ -9,8 +9,8 @@ export const restaurantInfo: Restaurant = {
   name: 'HAY QUA',
   description: '베트남 & 퓨전 요리 전문점',
   contact: {
-    phone: '02-1234-5678',
-    address: '서울시 강남구 테헤란로 123',
+    phone: '0507-1346-3527',
+    address: '경기 안양시 동안구 부림로 166 102호-2호',
     hours: '11:00 ~ 22:00',
   },
 };

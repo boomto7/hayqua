@@ -13,7 +13,7 @@
  *    - 카테고리 매핑은 menu-database.md 상단에 자동으로 업데이트됩니다
  * 3. npm run generate-menu 명령을 실행하세요
  * 
- * 마지막 생성: 2025. 11. 26. 오후 5:50:51
+ * 마지막 생성: 2025. 11. 27. 오후 6:22:14
  * 카테고리: 8개
  * 메뉴: 35개
  */
@@ -78,6 +78,7 @@ export const menuCategories: MenuCategory[] = [
     "name": "안주류",
     "id": "hotfood",
     "nameEn": "Hot Food",
+    "isNight": 1,
     "description": "",
     "order": 8
   }
@@ -105,6 +106,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Flank Pho",
     "price": 13000,
     "spicyLevel": 0,
+    "image": "/images/차돌박이쌀국수.jpeg",
     "note": "매운맛 변경 시 +1,000원",
     "id": "2"
   },
@@ -393,6 +395,7 @@ export const menuItems: MenuItem[] = [
     "category": "alcohol",
     "nameEn": "High Ball 380ml",
     "spicyLevel": 0,
+    "isNight": 1,
     "note": "샷추가 +2,000원",
     "id": "24",
     "options": [
@@ -436,6 +439,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Shrimp Wantang Eggsoup",
     "price": 17000,
     "spicyLevel": 0,
+    "isNight": 1,
     "image": "/images/새우완자계란탕.jpeg",
     "id": "26"
   },
@@ -447,6 +451,7 @@ export const menuItems: MenuItem[] = [
     "spicyLevel": 0,
     "image": "/images/돌판통오징어치킨야끼우동.jpeg",
     "isPopular": true,
+    "isNight": 1,
     "id": "27",
     "options": [
       {
@@ -465,6 +470,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Whole Squid SeaFood Jjamppong",
     "price": 24000,
     "spicyLevel": 0,
+    "isNight": 1,
     "image": "/images/통오징어해물짬뽕.jpeg",
     "id": "28"
   },
@@ -474,6 +480,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Whole Squid Nagasaki Jjamppong",
     "price": 24000,
     "spicyLevel": 0,
+    "isNight": 1,
     "id": "29"
   },
   {
@@ -482,6 +489,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Stir-Gried Honey Duck Smokes Vegetables",
     "price": 18000,
     "spicyLevel": 0,
+    "isNight": 1,
     "id": "30"
   },
   {
@@ -490,6 +498,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Fried Kayju Potato",
     "price": 12000,
     "spicyLevel": 0,
+    "isNight": 1,
     "id": "31"
   },
   {
@@ -498,6 +507,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Chicken Karaage",
     "price": 15000,
     "spicyLevel": 0,
+    "isNight": 1,
     "id": "32"
   },
   {
@@ -506,6 +516,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Roast chicken Deri Charcoal FireChicken Skewer",
     "price": 14000,
     "spicyLevel": 0,
+    "isNight": 1,
     "image": "/images/불닭데리숯불닭꼬치.jpeg",
     "id": "33"
   },
@@ -515,6 +526,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Two++ Crunchy Dried Pollack",
     "price": 16000,
     "spicyLevel": 0,
+    "isNight": 1,
     "id": "34"
   },
   {
@@ -523,6 +535,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "A Fake Octopus",
     "price": 12000,
     "spicyLevel": 0,
+    "isNight": 1,
     "id": "35"
   }
 ];
