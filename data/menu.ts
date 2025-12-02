@@ -13,9 +13,9 @@
  *    - 카테고리 매핑은 menu-database.md 상단에 자동으로 업데이트됩니다
  * 3. npm run generate-menu 명령을 실행하세요
  * 
- * 마지막 생성: 2025. 12. 2. 오후 1:55:45
+ * 마지막 생성: 2025. 12. 2. 오후 2:56:22
  * 카테고리: 8개
- * 메뉴: 36개
+ * 메뉴: 39개
  */
 
 import { MenuItem, MenuCategory } from '@/types';
@@ -119,6 +119,32 @@ export const menuItems: MenuItem[] = [
     "id": "3"
   },
   {
+    "name": "목살 쌀국수",
+    "category": "pho",
+    "nameEn": "pork neck Pho",
+    "price": 14000,
+    "spicyLevel": 0,
+    "image": "/images/목살쌀국수.jpeg",
+    "id": "4"
+  },
+  {
+    "name": "매운 목살 쌀국수",
+    "category": "pho",
+    "nameEn": "Spicy pork neck Pho",
+    "price": 15000,
+    "spicyLevel": 3,
+    "image": "/images/매운목살쌀국수.jpeg",
+    "id": "5"
+  },
+  {
+    "name": "똠양꿍 쌀국수",
+    "category": "pho",
+    "nameEn": "Tom Yum Pho",
+    "price": 15000,
+    "spicyLevel": 3,
+    "id": "6"
+  },
+  {
     "name": "닭고기 버섯 쌀국수",
     "category": "pho",
     "nameEn": "Chicken Mushroom Pho",
@@ -127,7 +153,7 @@ export const menuItems: MenuItem[] = [
     "image": "/images/닭고기버섯쌀국수.jpeg",
     "isBest": true,
     "note": "매운맛 변경 시 +1,000원",
-    "id": "4"
+    "id": "7"
   },
   {
     "name": "새우완탕 버섯 쌀국수",
@@ -138,7 +164,7 @@ export const menuItems: MenuItem[] = [
     "image": "/images/새우완탕쌀국수.jpeg",
     "isPopular": true,
     "note": "매운맛 변경 시 +1,000원",
-    "id": "5"
+    "id": "8"
   },
   {
     "name": "통오징어 해산물 쌀국수",
@@ -148,7 +174,7 @@ export const menuItems: MenuItem[] = [
     "spicyLevel": 1,
     "image": "/images/통오징어_해산물_쌀국수.png",
     "isBest": true,
-    "id": "6"
+    "id": "9"
   },
   {
     "name": "팟타이",
@@ -158,7 +184,7 @@ export const menuItems: MenuItem[] = [
     "spicyLevel": 0,
     "image": "/images/팟타이.jpeg",
     "isPopular": true,
-    "id": "7"
+    "id": "10"
   },
   {
     "name": "치킨 팟타이",
@@ -166,7 +192,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Chicken Phat Thai",
     "price": 14500,
     "spicyLevel": 0,
-    "id": "8"
+    "id": "11"
   },
   {
     "name": "파인애플 볶음밥",
@@ -175,7 +201,7 @@ export const menuItems: MenuItem[] = [
     "price": 13000,
     "spicyLevel": 0,
     "image": "/images/파인애플볶음밥.jpeg",
-    "id": "9"
+    "id": "12"
   },
   {
     "name": "소불고기 볶음밥",
@@ -184,7 +210,7 @@ export const menuItems: MenuItem[] = [
     "price": 14000,
     "spicyLevel": 0,
     "image": "/images/소불고기볶음밥.jpeg",
-    "id": "10"
+    "id": "13"
   },
   {
     "name": "통오징어 해산물 볶음밥",
@@ -194,7 +220,7 @@ export const menuItems: MenuItem[] = [
     "spicyLevel": 0,
     "image": "/images/통오징어해산물볶음밥.jpeg",
     "isPopular": true,
-    "id": "11"
+    "id": "14"
   },
   {
     "name": "분짜",
@@ -203,7 +229,7 @@ export const menuItems: MenuItem[] = [
     "price": 15500,
     "spicyLevel": 0,
     "image": "/images/분짜.jpeg",
-    "id": "12"
+    "id": "15"
   },
   {
     "name": "에그롤",
@@ -211,7 +237,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Egg Rolls (sweet potato, Shrimp)",
     "spicyLevel": 0,
     "image": "/images/에그롤.jpeg",
-    "id": "13",
+    "id": "16",
     "options": [
       {
         "name": "(고구마 2 / 새우 2) 4 PCS",
@@ -229,7 +255,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Shrimp Croquette",
     "spicyLevel": 0,
     "image": "/images/새우고로케.jpeg",
-    "id": "14",
+    "id": "17",
     "options": [
       {
         "name": "4 CUT",
@@ -247,7 +273,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Sea food Cha Gio",
     "spicyLevel": 0,
     "image": "/images/해물짜조.jpeg",
-    "id": "15",
+    "id": "18",
     "options": [
       {
         "name": "4 CUT",
@@ -264,7 +290,8 @@ export const menuItems: MenuItem[] = [
     "category": "side",
     "nameEn": "Fried Shrimp",
     "spicyLevel": 0,
-    "id": "16",
+    "image": "/images/새우튀김.jpeg",
+    "id": "19",
     "options": [
       {
         "name": "4 PCS",
@@ -277,13 +304,13 @@ export const menuItems: MenuItem[] = [
     ]
   },
   {
-    "name": "버팔로윙, 붕",
+    "name": "버팔로윙, 봉",
     "category": "side",
     "nameEn": "Buffalo Wing, Bong",
     "subtitle": "윙 Wing or 봉 Bong",
     "spicyLevel": 0,
     "image": "/images/버팔로윙.jpeg",
-    "id": "17",
+    "id": "20",
     "options": [
       {
         "name": "4 PCS",
@@ -300,7 +327,7 @@ export const menuItems: MenuItem[] = [
     "category": "drink",
     "nameEn": "Soft Drink",
     "spicyLevel": 0,
-    "id": "18",
+    "id": "21",
     "options": [
       {
         "name": "콜라 / 사이다 Coke / Sider",
@@ -317,7 +344,7 @@ export const menuItems: MenuItem[] = [
     "category": "drink",
     "nameEn": "Juice",
     "spicyLevel": 0,
-    "id": "19",
+    "id": "22",
     "options": [
       {
         "name": "망고 / 오렌지 Mango / Orange",
@@ -330,7 +357,7 @@ export const menuItems: MenuItem[] = [
     "category": "drink",
     "nameEn": "Ice Tea",
     "spicyLevel": 0,
-    "id": "20",
+    "id": "23",
     "options": [
       {
         "name": "복숭아 Peach",
@@ -343,7 +370,7 @@ export const menuItems: MenuItem[] = [
     "category": "drink",
     "nameEn": "Ade",
     "spicyLevel": 0,
-    "id": "21",
+    "id": "24",
     "options": [
       {
         "name": "자몽 / 레몬 / 청포도 / 모히또 / 라즈베리 Grapefruit / Lemon / Green Grape / Mojito / Raspberry",
@@ -356,7 +383,7 @@ export const menuItems: MenuItem[] = [
     "category": "alcohol",
     "nameEn": "Soju",
     "spicyLevel": 0,
-    "id": "22",
+    "id": "25",
     "options": [
       {
         "name": "참이슬 / 처음처럼 / 진로 / 새로",
@@ -373,7 +400,7 @@ export const menuItems: MenuItem[] = [
     "category": "alcohol",
     "nameEn": "Draft Beer",
     "spicyLevel": 0,
-    "id": "23",
+    "id": "26",
     "options": [
       {
         "name": "테라 생맥주 Terra Draft Beer 180ml",
@@ -394,7 +421,7 @@ export const menuItems: MenuItem[] = [
     "category": "alcohol",
     "nameEn": "Bottled beer",
     "spicyLevel": 0,
-    "id": "24",
+    "id": "27",
     "options": [
       {
         "name": "카스 / 테라 Cass / Terra 500ml",
@@ -409,7 +436,7 @@ export const menuItems: MenuItem[] = [
     "spicyLevel": 0,
     "isNight": 1,
     "note": "샷추가 +2,000원",
-    "id": "25",
+    "id": "28",
     "options": [
       {
         "name": "산토리하이볼 Suntory High Ball",
@@ -443,7 +470,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Jumbo Egg",
     "price": 15000,
     "spicyLevel": 0,
-    "id": "26"
+    "id": "29"
   },
   {
     "name": "새우완자계란탕",
@@ -453,7 +480,7 @@ export const menuItems: MenuItem[] = [
     "spicyLevel": 0,
     "isNight": 1,
     "image": "/images/새우완자계란탕.jpeg",
-    "id": "27"
+    "id": "30"
   },
   {
     "name": "통오징어 치킨 야끼우동",
@@ -464,7 +491,7 @@ export const menuItems: MenuItem[] = [
     "image": "/images/돌판통오징어치킨야끼우동.jpeg",
     "isPopular": true,
     "isNight": 1,
-    "id": "28",
+    "id": "31",
     "options": [
       {
         "name": "우동사리 추가",
@@ -484,7 +511,7 @@ export const menuItems: MenuItem[] = [
     "spicyLevel": 0,
     "isNight": 1,
     "image": "/images/통오징어해물짬뽕.jpeg",
-    "id": "29"
+    "id": "32"
   },
   {
     "name": "통오징어 나가사끼짬뽕",
@@ -493,7 +520,7 @@ export const menuItems: MenuItem[] = [
     "price": 24000,
     "spicyLevel": 0,
     "isNight": 1,
-    "id": "30"
+    "id": "33"
   },
   {
     "name": "허니오리훈제 야채볶음",
@@ -502,7 +529,7 @@ export const menuItems: MenuItem[] = [
     "price": 18000,
     "spicyLevel": 0,
     "isNight": 1,
-    "id": "31"
+    "id": "34"
   },
   {
     "name": "케이준 감자튀김",
@@ -511,7 +538,7 @@ export const menuItems: MenuItem[] = [
     "price": 12000,
     "spicyLevel": 0,
     "isNight": 1,
-    "id": "32"
+    "id": "35"
   },
   {
     "name": "수제치킨 가라아게",
@@ -520,7 +547,7 @@ export const menuItems: MenuItem[] = [
     "price": 15000,
     "spicyLevel": 0,
     "isNight": 1,
-    "id": "33"
+    "id": "36"
   },
   {
     "name": "불닭데리 숯불 닭꼬치",
@@ -530,7 +557,7 @@ export const menuItems: MenuItem[] = [
     "spicyLevel": 0,
     "isNight": 1,
     "image": "/images/불닭데리숯불닭꼬치.jpeg",
-    "id": "34"
+    "id": "37"
   },
   {
     "name": "투뿔 바삭 먹태",
@@ -539,7 +566,7 @@ export const menuItems: MenuItem[] = [
     "price": 16000,
     "spicyLevel": 0,
     "isNight": 1,
-    "id": "35"
+    "id": "38"
   },
   {
     "name": "가문어",
@@ -548,6 +575,6 @@ export const menuItems: MenuItem[] = [
     "price": 12000,
     "spicyLevel": 0,
     "isNight": 1,
-    "id": "36"
+    "id": "39"
   }
 ];

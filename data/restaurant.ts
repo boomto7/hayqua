@@ -11,6 +11,6 @@ export const restaurantInfo: Restaurant = {
   contact: {
     phone: '0507-1346-3527',
     address: '경기 안양시 동안구 부림로 166 102호-2호',
-    hours: '11:00 ~ 22:00',
+    hours: '11:00 ~ 23:00',
   },
 };
