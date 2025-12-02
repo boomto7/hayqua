@@ -13,7 +13,7 @@
  *    - 카테고리 매핑은 menu-database.md 상단에 자동으로 업데이트됩니다
  * 3. npm run generate-menu 명령을 실행하세요
  * 
- * 마지막 생성: 2025. 12. 2. 오후 2:56:22
+ * 마지막 생성: 2025. 12. 2. 오후 3:12:09
  * 카테고리: 8개
  * 메뉴: 39개
  */
@@ -142,6 +142,7 @@ export const menuItems: MenuItem[] = [
     "nameEn": "Tom Yum Pho",
     "price": 15000,
     "spicyLevel": 3,
+    "image": "/images/똠얌꿍쌀국수.jpeg",
     "id": "6"
   },
   {
