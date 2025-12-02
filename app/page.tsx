@@ -150,9 +150,9 @@ function HomeContent() {
       </main>
 
       {/* 푸터 */}
-      <footer className="bg-[#B88654] text-white py-8">
+      <footer className="bg-gradient-to-r from-[#FFF8E7] to-[#FFEED6] text-[#8B6F47] py-8">
         <Container>
-          <div className="text-center text-sm text-gray-400">
+          <div className="text-center text-sm text-[#6B5F47]">
             <p className="mb-2">&copy; 2025 {restaurant.name}. All rights reserved.</p>
             <p>베트남 & 퓨전 요리 전문점</p>
           </div>
